@@ -19,7 +19,12 @@
 
   function itemHTML(it){
     var price = (it.price || it.price === 0) ? '<span class="price">' + esc(it.price) + '</span>' : '';
-    return '<div class="menu-item rv">' +
+    // Note: deliberately no "rv" class — that class starts elements at
+    // opacity:0 until a page-load-time IntersectionObserver (assets/script.js)
+    // reveals them. Items inserted after that observer has already run never
+    // get observed, so they'd stay invisible forever. These are already
+    // appearing dynamically, so they don't need the scroll-reveal treatment.
+    return '<div class="menu-item">' +
       '<div class="row1"><span class="name">' + esc(it.name) + '</span>' + price + '</div>' +
       '<p class="desc">' + esc(it.description) + '</p>' +
     '</div>';
