@@ -368,7 +368,11 @@ section{ position:relative; }
 .marquee{
   overflow:hidden;
   border-top:1px solid var(--rule);
-  border-bottom:1px solid var(--rule);
+  /* Stronger than --rule: this border sits cream-on-cream against the plain
+     page background below (unlike the top border, which reads against the
+     lighter map image above), so the default rule opacity was nearly
+     invisible here. Bumped locally rather than changing --rule globally. */
+  border-bottom:1px solid oklch(0.22 0.06 250 / 0.35);
   padding:20px 0;
   background:var(--cream);
 }
