@@ -398,6 +398,33 @@ section{ position:relative; }
   from{ transform:translateX(0); }
   to{ transform:translateX(-50%); }
 }
+@media (max-width: 760px){
+  /* On phones, drop the infinite horizontal scroll rather than debug why
+     the width:max-content marquee track was breaking its line unevenly
+     (splitting into oddly space-justified fragments instead of a clean
+     wrap). A static, centered, deliberately-wrapped list reads better at
+     this width anyway. The second <span aria-hidden> only exists to make
+     the desktop scroll loop seamless, so it's hidden here to avoid
+     duplicating every item. */
+  .marquee-track{
+    animation:none;
+    transform:none;
+    flex-wrap:wrap;
+    justify-content:center;
+    width:auto;
+    white-space:normal;
+    row-gap:14px;
+    column-gap:28px;
+    text-align:center;
+  }
+  .marquee-track > span:not([aria-hidden]){
+    flex-wrap:wrap;
+    justify-content:center;
+    row-gap:14px;
+    column-gap:28px;
+  }
+  .marquee-track > span[aria-hidden="true"]{ display:none; }
+}
 
 /* ---------- Numerals ---------- */
 .numeral{
