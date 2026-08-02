@@ -399,31 +399,43 @@ section{ position:relative; }
   to{ transform:translateX(-50%); }
 }
 @media (max-width: 760px){
-  /* On phones, drop the infinite horizontal scroll rather than debug why
-     the width:max-content marquee track was breaking its line unevenly
-     (splitting into oddly space-justified fragments instead of a clean
-     wrap). A static, centered, deliberately-wrapped list reads better at
-     this width anyway. The second <span aria-hidden> only exists to make
-     the desktop scroll loop seamless, so it's hidden here to avoid
-     duplicating every item. */
+  /* On phones, drop the infinite horizontal scroll — width:max-content
+     marquees don't hold up well at this width. Instead, present the
+     accolades as a static vertical list, one per line, each one framed
+     by a diamond on either side. The second <span aria-hidden> only
+     exists to make the desktop scroll loop seamless, so it's hidden here
+     to avoid duplicating every item; the between-item .star separators
+     are hidden too since each item now gets its own pair of diamonds via
+     ::before/::after instead. */
   .marquee-track{
     animation:none;
     transform:none;
-    flex-wrap:wrap;
-    justify-content:center;
+    flex-direction:column;
+    align-items:center;
     width:auto;
     white-space:normal;
-    row-gap:14px;
-    column-gap:28px;
+    row-gap:16px;
     text-align:center;
   }
   .marquee-track > span:not([aria-hidden]){
-    flex-wrap:wrap;
-    justify-content:center;
-    row-gap:14px;
-    column-gap:28px;
+    flex-direction:column;
+    align-items:center;
+    row-gap:16px;
   }
   .marquee-track > span[aria-hidden="true"]{ display:none; }
+  .marquee-track > span:not([aria-hidden]) > .star{ display:none; }
+  .marquee-track em{ font-style:italic; }
+  .marquee-track em::before,
+  .marquee-track em::after{
+    content:"✦";
+    display:inline-block;
+    font-style:normal;
+    font-size:0.55em;
+    color:var(--brass);
+    vertical-align:middle;
+  }
+  .marquee-track em::before{ margin-right:12px; }
+  .marquee-track em::after{ margin-left:12px; }
 }
 
 /* ---------- Numerals ---------- */
