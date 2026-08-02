@@ -3135,7 +3135,7 @@ body[data-page="shore"] .site-header:not(.scrolled) .header-mark img{ filter:non
   text-align:right; line-height:1.9; margin:0;
 }
 @media (max-width: 760px){
-  .r-fullhero-foot{ position:static; flex-direction:column; align-items:center; gap:22px; margin-top:36px; }
+  .r-fullhero-foot{ position:static; flex-direction:column; align-items:center; gap:22px; margin-top:36px; margin-bottom:34px; }
   .r-fullhero-addr{ text-align:center; }
   .r-fullhero-content{ padding-top:120px; padding-bottom:40px; }
   .r-fullhero-foot .r-stack-actions{ flex-wrap:wrap; justify-content:center; gap:10px; }
