@@ -466,7 +466,11 @@
       </div>
 
       <!-- Combo pricing (half-dozen/dozen, cup/bowl) doesn't fit Sanity's
-           number price field — kept static, outside the group above. -->
+           number price field — kept static, outside the group above.
+           Split into its own two-column pair (mirroring the Sanity group's
+           display:contents trick) so this doesn't land as an odd 3rd grid
+           item and break the 2-column row alignment. -->
+      <div class="menu-course-group" style="display:contents;">
       <div class="menu-col">
 
         <div class="menu-item rv">
@@ -485,6 +489,10 @@
           <p class="desc">Salad garnish, garlic &amp; herb mayonnaise <span class="tag">House</span></p>
         </div>
 
+      </div>
+
+      <div class="menu-col">
+
         <div class="menu-item rv">
           <div class="row1">
             <span class="name">Loch Creran rock oysters</span>
@@ -501,6 +509,7 @@
           <p class="desc">Steamed in white wine, cream &amp; garlic</p>
         </div>
 
+      </div>
       </div>
     </div>
 
