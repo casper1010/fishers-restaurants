@@ -464,13 +464,15 @@
 
       </div>
       </div>
+    </div>
 
-      <!-- Combo pricing (half-dozen/dozen, cup/bowl) doesn't fit Sanity's
-           number price field — kept static, outside the group above.
-           Split into its own two-column pair (mirroring the Sanity group's
-           display:contents trick) so this doesn't land as an odd 3rd grid
-           item and break the 2-column row alignment. -->
-      <div class="menu-course-group" style="display:contents;">
+    <!-- Combo pricing (half-dozen/dozen, cup/bowl) doesn't fit Sanity's
+         number price field — kept static, outside the group above.
+         Given its own independent .menu-cols grid (rather than sharing the
+         Sanity group's grid) so its 2/2 row height is never stretched by
+         the Sanity group's uneven 3/2 split — each grid only has to match
+         heights within itself. -->
+    <div class="menu-cols">
       <div class="menu-col">
 
         <div class="menu-item rv">
@@ -509,7 +511,6 @@
           <p class="desc">Steamed in white wine, cream &amp; garlic</p>
         </div>
 
-      </div>
       </div>
     </div>
 
