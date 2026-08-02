@@ -2868,12 +2868,16 @@ section{ position:relative; }
     flex-direction:column; align-items:center; justify-content:center;
     gap:34px;
     background:var(--cream);
-    transform:translateY(-100%); opacity:0;
+    /* Opaque at all times — only slide via transform. Previously this also
+       transitioned opacity 0→1, which meant for ~0.3s while opening/closing
+       the full-screen overlay was semi-transparent, letting the page
+       underneath show through and visually collide with the nav links. */
+    transform:translateY(-100%);
     pointer-events:none;
-    transition:transform .45s cubic-bezier(.2,.6,.2,1), opacity .3s ease;
+    transition:transform .45s cubic-bezier(.2,.6,.2,1);
     z-index:65;
   }
-  .site-header.nav-open .nav{ transform:translateY(0); opacity:1; pointer-events:auto; }
+  .site-header.nav-open .nav{ transform:translateY(0); pointer-events:auto; }
   .nav a{ font-size:26px; color:var(--ink-deep) !important; }
   .hero-meta{ grid-template-columns: repeat(2, 1fr); gap:24px; }
   .hero-tag{ display:none; }
@@ -2897,6 +2901,7 @@ section{ position:relative; }
   .folio-clip{ flex-basis: 100%; }
   .folio-track{ gap:18px; }
   .map-grid{ grid-template-columns: 1fr; }
+  .map-section{ display:none; }
   .story-grid{ grid-template-columns: 1fr; min-height:0; }
   .story-text{ padding:56px var(--gutter); order:2; }
   .story-img{ order:1; min-height:85vw; }
