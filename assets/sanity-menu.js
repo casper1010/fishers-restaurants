@@ -1,7 +1,8 @@
 /* Sanity CMS menu loader — pulls live menu items into each course group.
    Single shared dataset (fishers_menu), separate document type per restaurant.
-   Schema docs: menuItemLeith, menuItemCity, menuItemShorebar — each with
-     name, description, price, tag (optional), course (string, matches data-course), order (number, optional).
+   Schema docs (see ~/fishers-website): menuItemLeith, menuItemCity,
+     menuItemShorebar — each with name, description, price (number),
+     category (string, matches data-course), available (boolean).
    Each page sets window.FISHERS_MENU_TYPE to its own document type name.
    Falls back to the static HTML already in the page if the fetch fails, returns nothing, or Sanity isn't reachable. */
 (function(){
@@ -17,17 +18,16 @@
   }
 
   function itemHTML(it){
-    var tag = it.tag ? ' <span class="tag">' + esc(it.tag) + '</span>' : '';
-    var price = it.price ? '<span class="price">' + esc(it.price) + '</span>' : '';
+    var price = (it.price || it.price === 0) ? '<span class="price">' + esc(it.price) + '</span>' : '';
     return '<div class="menu-item rv">' +
       '<div class="row1"><span class="name">' + esc(it.name) + '</span>' + price + '</div>' +
-      '<p class="desc">' + esc(it.description) + tag + '</p>' +
+      '<p class="desc">' + esc(it.description) + '</p>' +
     '</div>';
   }
 
   document.querySelectorAll('.menu-course-group[data-course]').forEach(function(group){
     var course = group.getAttribute('data-course');
-    var query = encodeURIComponent('*[_type=="' + DOC_TYPE + '" && course=="' + course + '" && available!=false] | order(order asc, name asc){name,description,price,tag}');
+    var query = encodeURIComponent('*[_type=="' + DOC_TYPE + '" && category=="' + course + '" && available!=false] | order(name asc){name,description,price}');
 
     fetch(API + '?query=' + query)
       .then(function(r){ return r.json(); })
