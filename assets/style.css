@@ -3220,17 +3220,20 @@ body[data-page="shore"] .site-header:not(.scrolled) .header-mark img{ filter:non
   transform: rotate(6deg);
   opacity: 0.82;
   mix-blend-mode: multiply;
-  /* worn-ink distress: noise mask punches irregular gaps in the stroke + text */
-  -webkit-mask-image:
-    radial-gradient(circle at 50% 50%, #000 99%, transparent 100%),
-    url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMzAnIGhlaWdodD0nMTMwJz48ZmlsdGVyIGlkPSdyJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC4xMycgbnVtT2N0YXZlcz0nMicgc2VlZD0nNCcgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjxmZUNvbG9yTWF0cml4IHR5cGU9J21hdHJpeCcgdmFsdWVzPScwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAtMS43IDEuMjgnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTMwJyBoZWlnaHQ9JzEzMCcgZmlsdGVyPSd1cmwoJTIzciknLz48L3N2Zz4=");
-  -webkit-mask-composite: source-in;
-  mask-image:
-    radial-gradient(circle at 50% 50%, #000 99%, transparent 100%),
-    url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMzAnIGhlaWdodD0nMTMwJz48ZmlsdGVyIGlkPSdyJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC4xMycgbnVtT2N0YXZlcz0nMicgc2VlZD0nNCcgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjxmZUNvbG9yTWF0cml4IHR5cGU9J21hdHJpeCcgdmFsdWVzPScwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAtMS43IDEuMjgnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTMwJyBoZWlnaHQ9JzEzMCcgZmlsdGVyPSd1cmwoJTIzciknLz48L3N2Zz4=");
-  mask-composite: intersect;
-  mask-size: 100% 100%, 150px 150px;
-  -webkit-mask-size: 100% 100%, 150px 150px;
+  /* worn-ink distress: a single noise-texture mask punches irregular gaps
+     in the stroke + text. The circular boundary comes from border-radius
+     above, not mask compositing — a two-layer mask-composite:intersect
+     combo was here before but relied on composite support that didn't
+     render consistently, leaving a plain crisp circle instead of a
+     distressed one. A single mask layer needs no compositing at all. */
+  -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMzAnIGhlaWdodD0nMTMwJz48ZmlsdGVyIGlkPSdyJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC4xMycgbnVtT2N0YXZlcz0nMicgc2VlZD0nNCcgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjxmZUNvbG9yTWF0cml4IHR5cGU9J21hdHJpeCcgdmFsdWVzPScwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAtMS43IDEuMjgnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTMwJyBoZWlnaHQ9JzEzMCcgZmlsdGVyPSd1cmwoJTIzciknLz48L3N2Zz4=");
+  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMzAnIGhlaWdodD0nMTMwJz48ZmlsdGVyIGlkPSdyJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC4xMycgbnVtT2N0YXZlcz0nMicgc2VlZD0nNCcgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjxmZUNvbG9yTWF0cml4IHR5cGU9J21hdHJpeCcgdmFsdWVzPScwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAtMS43IDEuMjgnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTMwJyBoZWlnaHQ9JzEzMCcgZmlsdGVyPSd1cmwoJTIzciknLz48L3N2Zz4=");
+  -webkit-mask-size: 150px 150px;
+  mask-size: 150px 150px;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
   pointer-events: none;
 }
 @media (max-width: 900px){ .story-text::after{ display: none; } }
