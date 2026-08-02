@@ -10,12 +10,18 @@
   var DOC_TYPE = window.FISHERS_MENU_TYPE || 'menuItemLeith';
   var API = 'https://' + PROJECT_ID + '.apicdn.sanity.io/v2023-01-01/data/query/' + DATASET;
 
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>]/g, function(c){
+      return {'&':'&amp;', '<':'&lt;', '>':'&gt;'}[c];
+    });
+  }
+
   function itemHTML(it){
-    var tag = it.tag ? ' <span class="tag">' + it.tag + '</span>' : '';
-    var price = it.price ? '<span class="price">' + it.price + '</span>' : '';
+    var tag = it.tag ? ' <span class="tag">' + esc(it.tag) + '</span>' : '';
+    var price = it.price ? '<span class="price">' + esc(it.price) + '</span>' : '';
     return '<div class="menu-item rv">' +
-      '<div class="row1"><span class="name">' + it.name + '</span>' + price + '</div>' +
-      '<p class="desc">' + (it.description || '') + tag + '</p>' +
+      '<div class="row1"><span class="name">' + esc(it.name) + '</span>' + price + '</div>' +
+      '<p class="desc">' + esc(it.description) + tag + '</p>' +
     '</div>';
   }
 
