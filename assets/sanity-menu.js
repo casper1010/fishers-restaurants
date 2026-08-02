@@ -40,7 +40,23 @@
         var items = data && data.result;
         if(!items || !items.length) return; // keep static fallback
         group.querySelectorAll('.menu-item').forEach(function(el){ el.remove(); });
-        group.insertAdjacentHTML('beforeend', items.map(itemHTML).join(''));
+
+        // Groups that visually span two columns wrap them with
+        // style="display:contents" so the .menu-col children stay direct
+        // grid items of the parent .menu-cols grid. Appending straight to
+        // `group` in that case would make each new item its own direct grid
+        // child instead of flowing inside a column, producing one
+        // item-per-cell with huge gaps. Distribute across the real .menu-col
+        // containers (round-robin, for a balanced two-column look) when
+        // present; otherwise just append to the group itself.
+        var cols = group.querySelectorAll('.menu-col');
+        if(cols.length){
+          items.forEach(function(it, i){
+            cols[i % cols.length].insertAdjacentHTML('beforeend', itemHTML(it));
+          });
+        } else {
+          group.insertAdjacentHTML('beforeend', items.map(itemHTML).join(''));
+        }
       })
       .catch(function(){ /* Sanity unreachable — static HTML stands */ });
   });
