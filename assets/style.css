@@ -3300,7 +3300,6 @@ body[data-page="shore"] .site-header:not(.scrolled) .header-mark img{ filter:non
   mask-position: center;
   pointer-events: none;
 }
-@media (max-width: 900px){ .story-text::after{ display: none; } }
 /* footer waves: drop the too-perfect brass glint lines */
 .footer-waves path[stroke]{ display: none; }
 
