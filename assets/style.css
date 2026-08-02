@@ -2891,8 +2891,14 @@ section{ position:relative; }
   .nav-toggle{ display:flex; align-items:center; justify-content:center; }
   .nav{
     display:flex;
-    position:fixed; inset:0;
-    height:100vh; height:100dvh;
+    /* top/right/bottom/left longhand instead of the inset shorthand —
+       inset only landed in Safari 14.1 (spring 2021); on anything older
+       it's silently ignored, which would leave .nav with no explicit
+       sizing at all. That alone could explain both symptoms seen here:
+       an unpredictable slide-up amount (peeking through after scroll)
+       and a wrongly-sized box for justify-content:center to center
+       within (misaligned when open). Longhand works everywhere. */
+    position:fixed; top:0; right:0; bottom:0; left:0;
     flex-direction:column; align-items:center; justify-content:center;
     gap:34px;
     background:var(--cream);
@@ -2901,14 +2907,10 @@ section{ position:relative; }
        the full-screen overlay was semi-transparent, letting the page
        underneath show through and visually collide with the nav links. */
     transform:translateY(-100%);
-    /* Belt-and-braces on top of the transform: mobile Safari's address bar
-       hides on scroll, which changes the visual viewport height after the
-       -100% offset was already computed, so the slide-up amount can drift
-       out of sync and leave a sliver of the "closed" nav peeking in over
-       the page (and it was invisible to taps thanks to pointer-events, so
-       it just sat there uselessly). visibility:hidden doesn't depend on
-       any of that math — it's an unconditional guarantee the panel is
-       fully gone when closed. Delayed on the way out so the slide-up
+    /* Extra guarantee on top of the transform: visibility:hidden doesn't
+       depend on transform/viewport-height math at all, so even if the
+       slide-up amount is ever slightly off, nothing can show through or
+       be tapped while closed. Delayed on the way out so the slide-up
        animation still plays; instant on the way in. */
     visibility:hidden;
     pointer-events:none;
