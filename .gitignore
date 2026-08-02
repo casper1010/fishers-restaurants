@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+studio/node_modules/
+studio/dist/
+.vercel/
+*.log
+
+# Raw/original photo uploads — not referenced by the site (see /images for
+# the versions actually used). Excluded to keep the repo and Vercel
+# deploys fast; delete this line if you actually need them version-controlled.
+uploads/

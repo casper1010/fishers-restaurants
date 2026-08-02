@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Shore Bar — Leith, since 1888</title>
+<meta name="description" content="The Shore Bar — a wood-panelled pub on the Water of Leith. Oysters at the bar, live folk on Sundays, a hundred-odd Scotch malts." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css?v=3" />
+<link rel="stylesheet" href="assets/booking.css" />
+</head>
+<body data-page="shore">
+
+<header class="site-header">
+  <a href="index.html" class="header-mark" aria-label="Fishers, home">
+    <img src="assets/logo.svg" alt="Fishers" />
+    <span class="est">Edinburgh<br/>Est. 1991</span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html#story">About</a>
+    <a href="leith.html">Fishers in Leith</a>
+    <a href="city.html">Fishers in the City</a>
+    <a href="shore.html" class="active">The Shore Bar</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+</header>
+
+<!-- Floating booking button -->
+<a class="float-book" href="#" target="_blank" rel="noopener" aria-label="Make a booking">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+    <rect x="3" y="4.5" width="18" height="16" rx="1"/>
+    <line x1="3" y1="9" x2="21" y2="9"/>
+    <line x1="8" y1="2.5" x2="8" y2="6.5"/>
+    <line x1="16" y1="2.5" x2="16" y2="6.5"/>
+  </svg>
+  Book Now
+</a>
+
+<!-- ============== HERO (full-bleed) ============== -->
+<section class="r-fullhero" data-screen-label="Shore / Hero">
+  <img class="r-fullhero-img" src="images/shore-interior-web.jpg" alt="The wood-panelled bar room at The Shore, Leith — red leather chairs and marble tables" />
+  <div class="r-fullhero-scrim"></div>
+
+  <div class="r-fullhero-content">
+    <img class="r-fullhero-logo" src="assets/shore-logo-black.svg" alt="The Shore Bar and Restaurant" />
+  </div>
+
+  <div class="r-fullhero-foot">
+    <div class="r-stack-actions">
+      <a class="r-stack-btn" href="#" target="_blank" rel="noopener">Make a Booking
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><polyline points="15,6 21,12 15,18"/></svg>
+      </a>
+      <a class="r-stack-btn" href="#menu">View Menu
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><polyline points="6,9 12,15 18,9"/></svg>
+      </a>
+    </div>
+    <p class="r-fullhero-addr">Walk-ins welcome<br/>3 The Shore, Leith · EH6 6QW<br/>+44 (0)131 553 5080</p>
+  </div>
+</section>
+
+<!-- ============== ABOUT ============== -->
+<section class="about-band" data-screen-label="Shore / About">
+  <div class="about-inner" style="padding-top:20px; padding-bottom:20px;">
+    <div class="about-feature rv">
+      <span class="about-no">No. 03</span>
+      <h2 class="about-title">The Bar</h2>
+    </div>
+    <p class="rv">Just steps from Fishers in Leith, The Shore Bar and Restaurant is a <em>Leith institution</em> in its own right. Time-worn wood panelling, open fires, local beers on draft, and hearty food, inspired by both classic British dishes and modern European fare.</p>
+    <p class="rv">Pull up a seat for a French onion soup or something off the specials board, and come by on Sundays to enjoy <em>live jazz</em> in the bar.</p>
+  </div>
+</section>
+
+<!-- ============== PRESS QUOTE ============== -->
+<section class="r-quote-card r-quote-fullbleed r-q-centered" data-screen-label="Shore / In the Press">
+  <div class="wrap">
+    <div class="r-quote-grid">
+      <blockquote class="r-quote-text rv">
+        <span class="r-quote-rule"></span>
+        <p>Ask a local Leith resident where to head for fish and chips and they'll tell you 'Fishers on the Shore' without so much as a pause for breath.</p>
+        <cite>Condé Nast Traveller</cite>
+      </blockquote>
+      <div class="r-quote-img r-quote-slideshow rv-img" style="--rv-delay:160ms;">
+        <img src="images/shore-oysters.jpg" alt="Loch Fyne oysters on ice, chilli vinegar &amp; lemon" />
+        <img src="images/fish-pie.jpg" alt="Fishers fish pie" style="object-position:20% 75%;" />
+        <img src="images/shore-duck.jpg" alt="Seared duck breast, peppercorn sauce" />
+        <img src="images/shore-salmon.jpg" alt="Salmon with arancini and romesco" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PRESS QUOTE (photos first) ============== -->
+<section class="r-quote-card r-quote-fullbleed r-q-centered r-q-flip" data-screen-label="Shore / In the Press (flipped)">
+  <div class="wrap">
+    <div class="r-quote-grid">
+      <div class="r-quote-text rv">
+        <div class="r-hours-group">
+          <h3 class="r-hours-title">Opening Hours</h3>
+          <ul class="r-hours-grid">
+            <li><span class="day">Open daily</span><span class="time">12:00 &ndash; 23:00</span></li>
+            <li><span class="day">Kitchen hours</span><span class="time">12:00 &ndash; 22:00</span></li>
+            <li><span class="day">Live Jazz</span><span class="time">Sundays</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="r-quote-img r-quote-slideshow rv-img" style="--rv-delay:160ms;" data-rotate-offset="2000">
+        <img src="images/shore-espresso-martini.jpg" alt="An espresso martini poured at the bar" />
+        <img src="images/cheesecake.jpg" alt="Strawberry and mint set cheesecake" />
+        <img src="images/shore-table.jpg" alt="A laid table in the wood-panelled bar room" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== EVENTS ============== -->
+
+<section class="ta-reviews" data-screen-label="Shore / Reviews">
+  <div class="wrap">
+    <div class="ta-reviews-head rv">
+      <span class="eyebrow">Reviews</span>
+      <h2>From Our <em>Guests</em></h2>
+    </div>
+    <div class="ta-reviews-grid">
+      <article class="ta-card rv">
+        <div class="ta-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <span class="ta-title">Great Restaurant</span>
+        <p class="ta-text">Excellent food and great ambience. All four of us really enjoyed our evening. Worth the trip to Leith.</p>
+        <div class="ta-meta"><span class="ta-name">marion w</span><span class="ta-source">Jun 2026 · Tripadvisor</span></div>
+      </article>
+      <article class="ta-card rv">
+        <div class="ta-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <span class="ta-title">Great pub and atmosphere</span>
+        <p class="ta-text">Really good pub. Very friendly staff. There are places to sit outside, and enjoy a cold beer. They also have live music which was a lovely surprise.</p>
+        <div class="ta-meta"><span class="ta-name">TuxMum</span><span class="ta-source">Jun 2025 · Tripadvisor</span></div>
+      </article>
+      <article class="ta-card rv">
+        <div class="ta-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <span class="ta-title">Great fish and chips</span>
+        <p class="ta-text">I was staying nearby and wanted fish and chips so wandered a very short distance away to the Shore Bar. The meal was wonderful. The fish done perfectly and the chips tasty. The service was good, and the server very pleasant.</p>
+        <div class="ta-meta"><span class="ta-name">Margaret B</span><span class="ta-source">May 2025 · Tripadvisor</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="menu-section bleed-up" id="menu" data-screen-label="Shore / Menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <div class="rv">
+        <h2>The <em>Menu</em></h2>
+        <span class="menu-note">Subject to change daily</span>
+      </div>
+    </div>
+
+    <div class="menu-cols">
+
+      <div class="menu-col">
+        <h3 class="course rv">Starters</h3>
+        <div class="menu-course-group" data-course="starter">
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">The Shore Bar Brown Onion Soup</span>
+            <span class="price">9</span>
+          </div>
+          <p class="desc">Gruyère crouton</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Vegetable Soup of the Day</span>
+            <span class="price">7</span>
+          </div>
+          <p class="desc"><span class="tag">V</span></p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Half Dozen Rock Oysters</span>
+            <span class="price">23 / 24</span>
+          </div>
+          <p class="desc">Chilled, fresh horseradish &amp; Virgin Mary — or baked, garlic butter &amp; parmesan crumb</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Shetland Mussels</span>
+            <span class="price">10.50</span>
+          </div>
+          <p class="desc">Classic white wine, cream, shallots &amp; garlic — or red curry, coconut &amp; coriander</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">King Prawn Gratin Provençal</span>
+            <span class="price">12</span>
+          </div>
+          <p class="desc">Garlic, lemon &amp; herb croutons, tomato &amp; olive sauce</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Crispy Lamb Breast</span>
+            <span class="price">10</span>
+          </div>
+          <p class="desc">Pea &amp; mint purée, salsa verde</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Baked Sharing Camembert</span>
+            <span class="price">17</span>
+          </div>
+          <p class="desc">Sundried tomatoes, garlic &amp; oregano, artichoke &amp; balsamic salad, seeded brown toast <span class="tag">V</span></p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Warm Goats Cheese &amp; Beetroot Salad</span>
+            <span class="price">9</span>
+          </div>
+          <p class="desc">Toasted walnuts, fine beans, cucumber <span class="tag">V</span></p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Panko Salmon Fishcake</span>
+            <span class="price">9.50</span>
+          </div>
+          <p class="desc">Chive cream sauce, spinach</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">King Scallops</span>
+            <span class="price">17.50</span>
+          </div>
+          <p class="desc">Carrot purée, Stornoway black pudding, spinach. As a main, with baby potatoes &amp; glazed carrots — 34</p>
+        </div>
+        </div>
+      </div>
+
+      <div class="menu-col">
+        <h3 class="course rv">Mains</h3>
+        <div class="menu-course-group" data-course="main">
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Fish &amp; Chips</span>
+            <span class="price">19</span>
+          </div>
+          <p class="desc">Scottish haddock in traditional beer batter or crispy panko crumb. Extra mushy or garden peas — 1</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">8oz Aberdeen Angus Butler Steak</span>
+            <span class="price">30</span>
+          </div>
+          <p class="desc">Flat iron, black garlic butter, salad, chips<br>Surf 'n' Turf with king prawns — 35</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Halibut</span>
+            <span class="price">32</span>
+          </div>
+          <p class="desc">Wild garlic crumb, lemon mash, wild garlic cream sauce, tender stem broccoli</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Beef Short Ribs</span>
+            <span class="price">25</span>
+          </div>
+          <p class="desc">Truffle mash, gravy, spicy coleslaw</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Seabass</span>
+            <span class="price">24</span>
+          </div>
+          <p class="desc">Saffron beurre blanc, prosecco risotto, tender stem broccoli</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Duck Breast</span>
+            <span class="price">28</span>
+          </div>
+          <p class="desc">Blood orange &amp; rhubarb sauce, sweet potato mash, fine beans &amp; toasted almonds</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">King Prawns, Haddock &amp; Mussel Stew</span>
+            <span class="price">24.50</span>
+          </div>
+          <p class="desc">Tomato sauce, leeks, baby potatoes, toasted garlic baguette</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Spring Risotto</span>
+            <span class="price">18</span>
+          </div>
+          <p class="desc">Courgette, spinach, asparagus, garden peas, wild garlic &amp; cashew nut pesto <span class="tag">V</span></p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Seafood Linguine</span>
+            <span class="price">24.50</span>
+          </div>
+          <p class="desc">Tiger &amp; king prawns, mussels, anchovies, garlic, green olives, spicy tomato sauce</p>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-cols">
+
+      <div class="menu-col">
+        <h3 class="course rv">Sides</h3>
+        <div class="menu-course-group" data-course="side">
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Mushy peas / Garden peas</span>
+            <span class="price">1</span>
+          </div>
+        </div>
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Chips / Skinny chips</span>
+            <span class="price">6</span>
+          </div>
+        </div>
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Artisan bread</span>
+            <span class="price">4.50</span>
+          </div>
+          <p class="desc">Garlic &amp; herb dip or butter</p>
+        </div>
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Mixed salad</span>
+            <span class="price">5</span>
+          </div>
+        </div>
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">House Gordal olives</span>
+            <span class="price">6</span>
+          </div>
+        </div>
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Seasonal greens</span>
+            <span class="price">6</span>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="menu-col">
+        <h3 class="course rv">Desserts</h3>
+        <div class="menu-course-group" data-course="dessert">
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Fig &amp; Date Sticky Toffee Pudding</span>
+            <span class="price">9.75</span>
+          </div>
+          <p class="desc">Vanilla ice cream</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Pistachio Crème Brûlée</span>
+            <span class="price">9.75</span>
+          </div>
+          <p class="desc">Shortbread</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Dark Chocolate &amp; Coffee Brownie</span>
+            <span class="price">9.25</span>
+          </div>
+          <p class="desc">Burnt marshmallows, butterscotch coffee sauce, vanilla ice cream</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Baked Cherry Cheesecake</span>
+            <span class="price">9.50</span>
+          </div>
+          <p class="desc">White chocolate, kirsch cherries</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Borders Ice Cream &amp; Sorbet</span>
+            <span class="price">9</span>
+          </div>
+          <p class="desc">Choice of three scoops &amp; shortbread</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Affogato</span>
+            <span class="price">7.50</span>
+          </div>
+          <p class="desc">Espresso, vanilla or chocolate ice cream, shortbread. Add Frangelico, Amaretto or Banane du Brasil — 3.75</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Cheese Board</span>
+            <span class="price">14</span>
+          </div>
+          <p class="desc">Oatcakes, chutney, apple, walnuts</p>
+        </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <svg class="footer-waves" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="waveA-shore" x1="0" x2="1">
+        <stop offset="0" stop-color="oklch(0.15 0.05 250)"/>
+        <stop offset="1" stop-color="oklch(0.20 0.06 250)"/>
+      </linearGradient>
+    </defs>
+    <path fill="oklch(0.22 0.06 250 / 0.35)" d="M0,90 C180,60 360,140 540,110 C720,80 900,150 1080,120 C1260,90 1380,120 1440,100 L1440,180 L0,180 Z"/>
+    <path fill="oklch(0.18 0.05 250 / 0.6)" d="M0,110 C180,80 360,150 540,125 C720,100 900,160 1080,140 C1260,120 1380,140 1440,125 L1440,180 L0,180 Z"/>
+    <path fill="url(#waveA-shore)" d="M0,140 C180,115 360,170 540,150 C720,130 900,170 1080,155 C1260,140 1380,160 1440,150 L1440,180 L0,180 Z"/>
+    <path fill="none" stroke="oklch(0.65 0.085 72 / 0.45)" stroke-width="0.8" d="M0,90 C180,60 360,140 540,110 C720,80 900,150 1080,120 C1260,90 1380,120 1440,100"/>
+    <path fill="none" stroke="oklch(0.65 0.085 72 / 0.25)" stroke-width="0.6" d="M0,68 C200,50 380,100 560,82 C740,65 920,115 1100,95 C1280,75 1380,95 1440,85"/>
+  </svg>
+  <div class="footer-inner">
+    <div class="col footer-mark">
+      <img src="assets/logo.svg" alt="Fishers" style="filter: var(--logo-cream);" />
+    </div>
+    <div class="col">
+      <h4>Houses</h4>
+      <ul>
+        <li><a href="leith.html">Fishers in Leith</a></li>
+        <li><a href="city.html">Fishers in the City</a></li>
+        <li><a href="shore.html">The Shore Bar</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Follow</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/fishersrestaurants/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://vouchers.resdiary.com/Fishersinthecity1" target="_blank" rel="noopener">Gift Vouchers</a></li>
+        <li><a href="mailto:theshorebar@fishersrestaurantgroup.co.uk">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span>© Fishers Edinburgh · 1991–2026</span>
+    <span>56° N · 03° W</span>
+    <span>Site by The Drawing Room</span>
+  </div>
+</footer>
+
+<script>window.FISHERS_MENU_TYPE='menuItemShorebar';</script>
+<script src="assets/script.js?v=2"></script>
+<script src="assets/sanity-menu.js"></script>
+<script src="assets/booking.js"></script>
+</body>
+</html>

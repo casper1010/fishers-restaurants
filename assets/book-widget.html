@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reservations — Fishers</title>
+<style>
+  html,body{ margin:0; padding:0; background:#fff; }
+  body{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  #rd-widget-frame{ max-width: 600px; margin: 0 auto; padding: 4px 10px 14px; }
+  /* simple skeleton while the widget boots */
+  #rd-boot{
+    display:flex; align-items:center; justify-content:center;
+    min-height:340px; color:#9a8f7e;
+    font: 12px/1.6 ui-monospace, "SF Mono", Menlo, monospace;
+    letter-spacing:0.22em; text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+<div id="rd-boot">Loading availability…</div>
+<div id="rd-widget-frame"></div>
+<input id="rdwidgeturl" name="rdwidgeturl" value="" type="hidden" />
+
+<script>
+(function(){
+  var VENUES = {
+    leith: 'https://booking.resdiary.com/widget/Standard/FishersBistro/13364?includeJquery=false',
+    city:  'https://booking.resdiary.com/widget/Standard/Fishersinthecity1/47609?includeJquery=false',
+    shore: 'https://booking.resdiary.com/widget/Standard/TheShoreBarRestaurant/13366?includeJquery=false'
+  };
+  var params = new URLSearchParams(location.search);
+  var key = (params.get('v') || 'leith').toLowerCase();
+  var url = VENUES[key] || VENUES.leith;
+  document.getElementById('rdwidgeturl').value = url;
+
+  // Load the ResDiary widget loader
+  var s = document.createElement('script');
+  s.src = 'https://booking.resdiary.com/bundles/WidgetV2Loader.js';
+  document.body.appendChild(s);
+
+  // Remove boot skeleton once the widget injects content
+  var frame = document.getElementById('rd-widget-frame');
+  var boot = document.getElementById('rd-boot');
+  var lastH = 0;
+  function reportHeight(){
+    if(boot && frame.innerHTML.trim().length > 0){ boot.remove(); boot = null; }
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    if(h !== lastH){
+      lastH = h;
+      try{ parent.postMessage({ type:'rd-widget-height', venue:key, height:h }, '*'); }catch(e){}
+    }
+  }
+  // Poll for changes (widget mutates the DOM as the user navigates steps)
+  setInterval(reportHeight, 350);
+  window.addEventListener('load', reportHeight);
+})();
+</script>
+</body>
+</html>

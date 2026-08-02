@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 210"><rect width="300" height="210" fill="#0f2438"/><text x="50%" y="52%" text-anchor="middle" font-family="Georgia,serif" font-size="34" fill="#c9a15a">F</text></svg></template>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fishers — Edinburgh Seafood, Est. 1991</title>
+<meta name="description" content="A small Scottish family of fish restaurants on the Firth of Forth. Three houses in Edinburgh: Fishers in Leith, Fishers in the City, and The Shore Bar." />
+<link rel="stylesheet" href="assets/style.css?v=3" />
+<link rel="stylesheet" href="assets/booking.css" />
+
+<!-- Optional fonts (loaded once; tweak panel swaps between them) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Italiana&family=Newsreader:ital,wght@0,300;0,400;0,500;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=Manrope:wght@300;400;500;600;700&family=Nunito+Sans:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Mono:wght@400;700&family=Inconsolata:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  /* Tweak-driven CSS hooks. The Tweaks panel rewrites these vars. */
+  :root{
+    --tw-serif: var(--serif);
+    --tw-sans:  var(--sans);
+    --tw-mono:  var(--mono);
+    --tw-headline-weight: 300;
+    --tw-headline-tracking: -0.025em;
+    --tw-base-size: 17px;
+    --tw-section-pad: 1;       /* multiplier */
+    --tw-marquee-speed: 60s;
+    --tw-parallax: 1;          /* multiplier */
+  }
+  body{ font-size: var(--tw-base-size); }
+  h1,h2,h3,h4,.serif{ font-family: var(--tw-serif); }
+  .hero-title{ font-weight: var(--tw-headline-weight); letter-spacing: var(--tw-headline-tracking); }
+  body{ font-family: var(--tw-sans); }
+  .mono, .eyebrow, .cap, .menu-item .price, .nav { /* keep nav serif */ }
+  .mono, .eyebrow, .cap, .menu-item .price, .map-corner, .footer-base, .marquee-track em ~ *, .stars-line{ font-family: var(--tw-mono); }
+  .marquee-track{ animation-duration: var(--tw-marquee-speed); }
+  .houses{
+    padding-top: calc(60px * var(--tw-section-pad));
+    padding-bottom: calc(60px * var(--tw-section-pad));
+  }
+  .cta-block{
+    text-align:center;
+  }
+  .cta-block .cta-mark{
+    width:64px; height:auto; margin:0 auto 32px; display:block;
+    opacity:0.9;
+  }
+  .cta-block h2{
+    line-height:1.15;
+  }
+  .cta-block h2 em{
+    color: var(--brass-deep);
+  }
+  .cta-block .btn.pill{
+    border-radius:999px;
+    background:transparent;
+    color:var(--ink-deep);
+    border-color:var(--ink-deep);
+  }
+  .cta-block .btn.pill::before{ background:var(--ink-deep); }
+  .cta-block .btn.pill:hover{ color:var(--cream); }
+  body.theme-night .cta-block .btn.pill{ color:var(--ink-deep); border-color:var(--ink-deep); }
+  .reviews, .cta-block{
+    padding-top: calc(140px * var(--tw-section-pad));
+    padding-bottom: calc(60px * var(--tw-section-pad));
+  }
+  .story{ padding-top:30px; padding-bottom:30px; }
+  /* Reviews runs tighter than the other big sections */
+  .reviews{
+    padding-top: calc(96px * var(--tw-section-pad));
+    padding-bottom: calc(50px * var(--tw-section-pad));
+  }
+  .map-section{
+    padding-top: calc(40px * var(--tw-section-pad));
+    padding-bottom: calc(60px * var(--tw-section-pad));
+  }
+
+  /* Background tone modes ------------------------------------------------ */
+  body.theme-paper{ --cream: oklch(0.97 0.022 80); --bone: oklch(0.93 0.025 80); }
+  body.theme-stone{ --cream: oklch(0.94 0.008 240); --bone: oklch(0.88 0.012 240); }
+  body.theme-night{
+    --cream: oklch(0.13 0.04 250);
+    --bone:  oklch(0.18 0.05 250);
+    --ink:   oklch(0.92 0.013 85);
+    --ink-deep: oklch(0.97 0.01 85);
+    --ink-night: oklch(0.08 0.03 250);
+    --rule: oklch(0.92 0.013 85 / 0.20);
+  }
+  body.theme-night .hero,
+  body.theme-night .map-section,
+  body.theme-night .descr-section,
+  body.theme-night .menu-section,
+  body.theme-night .cta-block,
+  body.theme-night .marquee{
+    background: var(--cream);
+    color: var(--ink);
+  }
+  body.theme-night .reviews,
+  body.theme-night .story,
+  body.theme-night .book-band,
+  body.theme-night .collage{
+    background: var(--ink-night);
+    color: var(--ink-deep);
+  }
+  body.theme-night .header-mark img,
+  body.theme-night .footer-mark img{ filter: var(--logo-cream); }
+  body.theme-night .menu-item .name,
+  body.theme-night .hero-title,
+  body.theme-night .houses-head h2,
+  body.theme-night .map-text h2,
+  body.theme-night .descr-text h2,
+  body.theme-night .menu-head h2,
+  body.theme-night .cta-block h2,
+  body.theme-night .house .name{
+    color: var(--ink-deep);
+  }
+  body.theme-night .site-header{ color: var(--ink); }
+  body.theme-night .map-box{ background:
+      radial-gradient(ellipse at 30% 20%, oklch(0.30 0.04 240) 0%, transparent 55%),
+      radial-gradient(ellipse at 70% 80%, oklch(0.22 0.05 240) 0%, transparent 50%),
+      linear-gradient(to bottom right, oklch(0.18 0.04 240), oklch(0.14 0.04 250));
+  }
+
+  /* Hero dark variant (independent of theme) */
+  body.hero-dark .hero{ background:var(--ink-deep); color:var(--cream); }
+  body.hero-dark .hero-title{ color:var(--cream); }
+  body.hero-dark .hero-mark{ color:var(--cream); }
+  body.hero-dark .hero-lead{ color: color-mix(in oklch, var(--cream) 85%, transparent); }
+  body.hero-dark .hero-meta{ border-color: color-mix(in oklch, var(--cream) 25%, transparent); }
+  body.hero-dark .hero-meta .val,
+  body.hero-dark .hero-meta .lbl{ color:var(--cream); }
+  body.hero-dark .hero-mark img{ filter: var(--logo-cream); }
+  body.hero-dark .btn{ color:var(--cream); border-color: color-mix(in oklch, var(--cream) 70%, transparent); }
+  body.hero-dark .btn::before{ background:var(--cream); }
+  body.hero-dark .btn:hover{ color:var(--ink-deep); }
+
+  /* Reveal intensity */
+  body.fx-none .rv,
+  body.fx-none .rv-mask,
+  body.fx-none .rv-img > *,
+  body.fx-none .rv-left,
+  body.fx-none .rv-right{ transition:none; opacity:1; transform:none; clip-path:inset(0); }
+  body.fx-strong .rv{ transform: translateY(60px); }
+  body.fx-strong .rv.in{ transform: none; }
+  body.fx-strong .rv-img > *{ transform: scale(1.25); }
+  body.fx-strong .rv-img.in > *{ transform: scale(1); }
+
+  /* Grain overlay */
+  body.grain::after{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    z-index:40;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNjAnIGhlaWdodD0nMTYwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC45JyBudW1PY3RhdmVzPScyJyBzdGl0Y2hUaWxlcz0nc3RpdGNoJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoJTIzbiknIG9wYWNpdHk9JzAuNTUnLz48L3N2Zz4=");
+    mix-blend-mode: multiply;
+    opacity: 0.10;
+  }
+
+  /* Italic accents toggle */
+  body.no-italics em,
+  body.no-italics .nav a,
+  body.no-italics .hero-meta .val,
+  body.no-italics .map-text h2,
+  body.no-italics .houses-head h2,
+  body.no-italics .reviews h2,
+  body.no-italics .story-text h2,
+  body.no-italics .menu-head h2,
+  body.no-italics .cta-block h2,
+  body.no-italics .menu-pull blockquote,
+  body.no-italics .resdiary-card h4,
+  body.no-italics .review .quote{
+    font-style: normal;
+  }
+
+  /* Number style: hide numerals */
+  body.no-num .numeral,
+  body.no-num .house .num,
+  body.no-num .menu-pull cite::before{ display:none; }
+  /* Reviews marquee — navy band with cream text, part of the reviews section */
+  .reviews-marquee{
+    margin-top:48px;
+    background:#fff;
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    padding:20px 0;
+  }
+  .reviews-marquee{ margin-top:0; }
+  .reviews-marquee .marquee-track{
+    animation:none;
+    width:100%;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    row-gap:10px;
+    color: var(--ink-deep);
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(16px, 2vw, 28px);
+    letter-spacing: 0.01em;
+    gap: 14px;
+    padding: 0 var(--gutter);
+  }
+  .reviews-marquee .marquee-track > span:last-child{ display:none; }
+  .reviews-marquee .marquee-track > span{ gap: 14px; row-gap:10px; flex-wrap:wrap; justify-content:space-between; white-space:normal; width:100%; }
+  .reviews-marquee .marquee-track em{ font-family: var(--serif); font-style: italic; font-weight: 400; }
+  .reviews-marquee .marquee-track .star{ font-family: var(--serif); font-style: italic; opacity: 0.6; font-size: 1em; }
+  .reviews-marquee .marquee-track em{
+    font-style: italic;
+    font-weight: 400;
+    opacity: 0.92;
+  }
+  .reviews-marquee .marquee-track .star{
+    color: color-mix(in oklch, var(--brass) 86%, white);
+    font-style: normal;
+    font-size: 0.55em;
+    opacity: 1;
+  }
+  /* ----- Instagram feed ----- */
+  .ig-section{
+    padding: calc(24px * var(--tw-section-pad)) 0 calc(60px * var(--tw-section-pad));
+    background: var(--cream);
+  }
+  .ig-section .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--brass-deep);
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+  }
+  .ig-section .eyebrow::before{
+    content:"";
+    width:34px; height:1px;
+    background:var(--brass-deep);
+  }
+  .ig-head{
+    display:grid;
+    grid-template-columns: 1fr auto;
+    gap:32px;
+    align-items:end;
+    margin-bottom:30px;
+  }
+  .ig-head h2{
+    margin:0;
+    font-size: clamp(28px, 4vw, 56px);
+    font-style:italic;
+    font-weight: var(--tw-headline-weight, 300);
+    letter-spacing: var(--tw-headline-tracking, -0.02em);
+    line-height:1;
+  }
+  .ig-follow{
+    display:inline-flex;
+    align-items:center;
+    gap:18px;
+    padding:14px 22px;
+    border:1px solid var(--ink-deep);
+    color:var(--ink-deep);
+    font-family: var(--mono);
+    font-size:11px;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+  .ig-follow:hover{
+    background:var(--ink-deep);
+    color:var(--cream);
+  }
+  .ig-follow .arrow{ display:inline-block; transition: transform 0.3s ease; }
+  .ig-follow:hover .arrow{ transform: translateX(4px); }
+
+  .ig-curator{
+    min-height: 480px;
+  }
+  .ig-curator .crt-logo{
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: color-mix(in oklch, var(--ink) 50%, transparent);
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px){
+    .ig-head{ grid-template-columns: 1fr; gap:18px; }
+  }
+</style>
+</head>
+<body data-page="home">
+
+<!-- ============== HEADER ============== -->
+<header class="site-header">
+  <a href="index.html" class="header-mark" aria-label="Fishers, home">
+    <img src="assets/logo.svg" alt="Fishers" />
+    <span class="est" style="font-family: &quot;JetBrains Mono&quot;">Edinburgh<br/>Est. <span data-year="founded">1991</span></span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <a href="#story" class="active">About</a>
+    <a href="leith.html">Fishers in Leith</a>
+    <a href="city.html">Fishers in the City</a>
+    <a href="shore.html">The Shore Bar</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="hero" data-screen-label="01 Hero">
+  <div class="hero-backdrop">
+    <div class="hero-video-wrap">
+      <iframe
+        id="heroVideo"
+        class="hero-video"
+        src="https://www.youtube.com/embed/ITEPB5vjTRk?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=ITEPB5vjTRk&controls=0&showinfo=0&modestbranding=1&playsinline=1&rel=0&disablekb=1&iv_load_policy=3&fs=0"
+        title="Fishers — Edinburgh seafood"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        referrerpolicy="strict-origin-when-cross-origin"
+        tabindex="-1"
+        aria-hidden="true">
+      </iframe>
+    </div>
+    <img class="hero-poster" src="images/pass-mussels.jpg" alt="" aria-hidden="true" />
+  </div>
+
+  <div class="hero-content wrap">
+    <div class="hero-mark rv">
+      <img src="assets/logo2.svg" alt="Fishers" class="hero-logo" />
+    </div>
+  </div>
+</section>
+
+<!-- ============== THE HOUSES ============== -->
+<section class="houses" id="houses" data-screen-label="02 Houses">
+  <div class="wrap">
+
+    <div class="houses-list">
+
+      <a href="leith.html" class="house rv">
+        <span class="house-bg" style="background-image:url('images/leith-exterior.webp');"></span>
+        <span class="ghost">01</span>
+        <h3 class="name">Fishers <em style="font-style:italic;">in Leith</em></h3>
+        <div class="addr">
+          1 The Shore, Leith,<br/>
+          Edinburgh EH6 6QW
+        </div>
+      </a>
+
+      <a href="city.html" class="house rv" style="--rv-delay:80ms;">
+        <span class="house-bg" style="background-image:url('images/city-exterior.jpg');"></span>
+        <span class="ghost">02</span>
+        <h3 class="name">Fishers <em style="font-style:italic;">in the City</em></h3>
+        <div class="addr">
+          58 Thistle Street,<br/>
+          Edinburgh EH2 1EN
+        </div>
+      </a>
+
+      <a href="shore.html" class="house rv" style="--rv-delay:160ms;">
+        <span class="house-bg" style="background-image:url('images/shore-exterior.jpg');"></span>
+        <span class="ghost">03</span>
+        <h3 class="name">The Shore <em style="font-style:italic;">Bar</em></h3>
+        <div class="addr">
+          3 The Shore, Leith,<br/>
+          Edinburgh EH6 6QW
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<div class="wrap" style="text-align:center; padding:56px 0 56px; display:flex; align-items:center; justify-content:center;">
+  <img class="story-head-mark rv" src="images/seafood-served-all-day.png" alt="Seafood served all day" style="margin:0 auto; display:block; width:clamp(360px, 38.4vw, 528px); --rv-delay:120ms;" />
+</div>
+
+<!-- ============== FAMILY HISTORY ============== -->
+<section class="story" id="story" data-screen-label="04 Story">
+  <div class="story-grid">
+    <div class="story-text">
+      <span class="eyebrow" style="display:block; font-family:var(--display); font-style:italic; text-transform:none; letter-spacing:0; font-size:clamp(28px,3vw,40px); color:var(--ink-deep); margin-bottom:16px;">A bit of history</span>
+      <p class="lede rv" style="--rv-delay:200ms;">Since 1991, Fishers has been Edinburgh's destination for exceptional seafood — beginning in a seventeenth-century watchtower on Leith's historic shore.</p>
+      <p class="rv" style="--rv-delay:280ms;">Our philosophy remains unchanged: fresh fish and shellfish, expertly prepared, served in warm, welcoming surroundings where every guest feels like they have a seat at our home.</p>
+      <p class="rv sig" style="--rv-delay:360ms;">— The Millars</p>
+    </div>
+
+    <div class="story-img rv-img">
+      <img src="images/welcome-window.jpg" alt="The welcome window at Fishers in Leith" />
+    </div>
+  </div>
+</section>
+
+<!-- ============== MARITIME MAP ============== -->
+<section class="map-section" data-screen-label="03 Map">
+  <div class="wrap">
+    <div class="map-grid">
+      <div class="map-box">
+        <img src="images/edinburgh-map.png" alt="Map of Leith and Edinburgh, showing the three Fishers houses" class="map-img" />
+
+        <!-- Compass rose overlay -->
+        <svg class="map-compass" viewBox="-50 -50 100 100" aria-hidden="true">
+          <circle r="38" fill="none" stroke="oklch(0.20 0.06 250 / 0.55)" stroke-width="0.8"></circle>
+          <circle r="28" fill="none" stroke="oklch(0.20 0.06 250 / 0.3)" stroke-width="0.5"></circle>
+          <path d="M 0 -34 L 6 0 L 0 34 L -6 0 Z" fill="var(--brass-deep)" opacity="0.9"></path>
+          <path d="M -34 0 L 0 -6 L 34 0 L 0 6 Z" fill="oklch(0.20 0.06 250 / 0.55)"></path>
+          <text x="0" y="-44" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="oklch(0.20 0.06 250)">N</text>
+          <text x="44" y="3" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="oklch(0.20 0.06 250 / 0.6)">E</text>
+          <text x="0" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="oklch(0.20 0.06 250 / 0.6)">S</text>
+          <text x="-44" y="3" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="oklch(0.20 0.06 250 / 0.6)">W</text>
+        </svg>
+
+        <!-- Scale bar overlay -->
+        <svg class="map-scale" viewBox="0 0 140 22" aria-hidden="true">
+          <line x1="0" y1="6" x2="120" y2="6" stroke="oklch(0.20 0.06 250)" stroke-width="1.2"></line>
+          <line x1="0" y1="2" x2="0" y2="10" stroke="oklch(0.20 0.06 250)" stroke-width="1.2"></line>
+          <line x1="60" y1="3" x2="60" y2="9" stroke="oklch(0.20 0.06 250)" stroke-width="1"></line>
+          <line x1="120" y1="2" x2="120" y2="10" stroke="oklch(0.20 0.06 250)" stroke-width="1.2"></line>
+          <text x="0" y="20" font-family="JetBrains Mono, monospace" font-size="8.5" fill="oklch(0.20 0.06 250 / 0.7)">0</text>
+          <text x="58" y="20" font-family="JetBrains Mono, monospace" font-size="8.5" fill="oklch(0.20 0.06 250 / 0.7)">½ MI</text>
+          <text x="113" y="20" font-family="JetBrains Mono, monospace" font-size="8.5" fill="oklch(0.20 0.06 250 / 0.7)">1 MI</text>
+        </svg>
+
+        <div class="map-corner tl">Plate XVII<br/>Firth of Forth</div>
+        <div class="map-corner tr">Surveyed<br/>1888 · 2024</div>
+        <div class="map-corner bl">Soundings in fathoms</div>
+        <div class="map-corner br">Reduced from<br/>Admiralty Chart 175</div>
+
+        <!-- Pins. Positions are % of the bitmap. -->
+        <div class="map-pin pin-leith" style="left:62%; top:9.8%;">
+          <span class="pin-dot"></span>
+          <span class="pin-label">№ 01 · Fishers in Leith</span>
+        </div>
+        <div class="map-pin pin-shore" style="left:62%; top:12.7%;">
+          <span class="pin-dot"></span>
+          <span class="pin-label pin-label-right">№ 03 · The Shore Bar</span>
+        </div>
+        <div class="map-pin pin-city" style="left:35.6%; top:93%;">
+          <span class="pin-dot"></span>
+          <span class="pin-label pin-label-above">№ 02 · Fishers in the City</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee reviews-marquee rv">
+  <div class="marquee-track">
+    <span>
+      <em>TripAdvisor Travelers' Choice 2025</em>
+      <span class="star">✦</span>
+      <em>The Scotsman's Top Five</em>
+      <span class="star">✦</span>
+      <em>Rick Steves Scotland Guidebook</em>
+      <span class="star">✦</span>
+      <em>Harden's Guide 2026</em>
+    </span>
+    <span aria-hidden="true">
+      <em>TripAdvisor Travelers' Choice 2025</em>
+      <span class="star">✦</span>
+      <em>The Scotsman's Top Five</em>
+      <span class="star">✦</span>
+      <em>Rick Steves Scotland Guidebook</em>
+      <span class="star">✦</span>
+      <em>Harden's Guide 2026</em>
+    </span>
+  </div>
+</div>
+
+<!-- ============== INSTAGRAM FEED (via Curator.io) ============== -->
+<section class="ig-section" data-screen-label="06 Instagram">
+  <div class="wrap">
+
+    <div class="ig-head rv" style="grid-template-columns: 1fr; text-align:left;">
+      <div>
+        <span class="eyebrow">A look inside</span>
+        <h2>Fresh catch</h2>
+      </div>
+    </div>
+
+    <!--
+      Curator.io feed embed.
+      Replace YOUR-FEED-ID below with the ID from your Curator.io dashboard
+      (curator.io → your feed → Publish → Embed Code).
+    -->
+    <div class="ig-curator rv">
+      <div id="curator-feed-fishers-feed">
+        <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a>
+      </div>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+/* curator-feed-fishers-feed */
+(function(){
+  var i, e, d = document, s = "script";
+  i = d.createElement("script");
+  i.async = 1;
+  i.charset = "UTF-8";
+  i.src = "https://cdn.curator.io/published/1524a480-790d-4ac9-a34f-1b6bdaf1d14a.js";
+  e = d.getElementsByTagName(s)[0];
+  e.parentNode.insertBefore(i, e);
+})();
+</script>
+
+<!-- ============== CTA ============== -->
+<section class="cta-block" style="padding-top:calc(32px * var(--tw-section-pad)); padding-bottom:calc(32px * var(--tw-section-pad));">
+  <div class="wrap">
+    <h2 class="rv" style="color:var(--ink-deep); font-size:clamp(40px, 5vw, 72px); font-family:var(--display); font-weight:400; letter-spacing:-0.02em;">Come in, <em style="font-style:italic; color:color-mix(in oklch, var(--ink-deep) 70%, transparent);">sit down,</em><br/>have <em>a dram</em></h2>
+    <div class="rv" style="--rv-delay:200ms; display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-top:36px;">
+      <a href="leith.html" data-book="leith" class="btn large pill">Book Leith <span class="arrow">→</span></a>
+      <a href="city.html" data-book="city" class="btn large pill">Book the City <span class="arrow">→</span></a>
+      <a href="shore.html" data-book="shore" class="btn large pill">Book the Shore <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+  <svg class="footer-waves" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="waveA" x1="0" x2="1">
+        <stop offset="0" stop-color="oklch(0.15 0.05 250)"/>
+        <stop offset="1" stop-color="oklch(0.20 0.06 250)"/>
+      </linearGradient>
+    </defs>
+    <!-- Stack of waves, each a different sine */ -->
+    <path fill="oklch(0.22 0.06 250 / 0.35)" d="M0,90 C180,60 360,140 540,110 C720,80 900,150 1080,120 C1260,90 1380,120 1440,100 L1440,180 L0,180 Z"/>
+    <path fill="oklch(0.18 0.05 250 / 0.6)" d="M0,110 C180,80 360,150 540,125 C720,100 900,160 1080,140 C1260,120 1380,140 1440,125 L1440,180 L0,180 Z"/>
+    <path fill="url(#waveA)" d="M0,140 C180,115 360,170 540,150 C720,130 900,170 1080,155 C1260,140 1380,160 1440,150 L1440,180 L0,180 Z"/>
+    <!-- thin brass glints -->
+    <path fill="none" stroke="oklch(0.65 0.085 72 / 0.45)" stroke-width="0.8" d="M0,90 C180,60 360,140 540,110 C720,80 900,150 1080,120 C1260,90 1380,120 1440,100"/>
+    <path fill="none" stroke="oklch(0.65 0.085 72 / 0.25)" stroke-width="0.6" d="M0,68 C200,50 380,100 560,82 C740,65 920,115 1100,95 C1280,75 1380,95 1440,85"/>
+  </svg>
+  <div class="footer-inner">
+    <div class="col footer-mark">
+      <img src="assets/logo.svg" alt="Fishers" style="filter: var(--logo-cream);" />
+    </div>
+    <div class="col">
+      <h4>Houses</h4>
+      <ul>
+        <li><a href="leith.html">Fishers in Leith</a></li>
+        <li><a href="city.html">Fishers in the City</a></li>
+        <li><a href="shore.html">The Shore Bar</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Follow</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/fishersrestaurants/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://vouchers.resdiary.com/Fishersinthecity1" target="_blank" rel="noopener">Gift Vouchers</a></li>
+        <li><a href="mailto:city@fishersrestaurantgroup.co.uk">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span>© Fishers Edinburgh · <span data-year-range="true">1991–2026</span></span>
+    <span>56° N · 03° W</span>
+    <span>Site by The Drawing Room</span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/booking.js"></script>
+
+<!-- Hero video: reveal only once playing (hides YouTube's startup chrome) + seamless loop -->
+<script>
+(function(){
+  var poster = document.querySelector('.hero-poster');
+  var reveal = function(){ if(poster) poster.classList.add('is-hidden'); };
+  // Safety net: never leave the poster up forever if the API can't load
+  var fallback = setTimeout(reveal, 2600);
+
+  function onYouTubeIframeAPIReady(){
+    new YT.Player('heroVideo', {
+      events: {
+        onReady: function(e){ e.target.mute(); e.target.playVideo(); },
+        onStateChange: function(e){
+          if(e.data === YT.PlayerState.PLAYING){
+            clearTimeout(fallback);
+            reveal();
+          } else if(e.data === YT.PlayerState.ENDED){
+            // loop without the reload flash the playlist param causes
+            e.target.seekTo(0);
+            e.target.playVideo();
+          }
+        }
+      }
+    });
+  }
+  window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+})();
+</script>
+
+<!-- Reviews: single-quote carousel -->
+<script>
+(function(){
+  var car = document.querySelector('[data-quotecar]');
+  if(!car) return;
+  var track  = car.querySelector('.folio-track');
+  var originals = [].slice.call(car.querySelectorAll('.folio-clip'));
+  var prev   = car.querySelector('.qc-prev');
+  var next   = car.querySelector('.qc-next');
+  var CLONE = 3; // cards cloned on each side, for seamless infinite wrap
+  var total = originals.length;
+
+  // Build [last CLONE clones] + [originals] + [first CLONE clones]
+  var beforeClones = originals.slice(total - CLONE).map(function(el){
+    var c = el.cloneNode(true); c.setAttribute('aria-hidden', 'true'); return c;
+  });
+  var afterClones = originals.slice(0, CLONE).map(function(el){
+    var c = el.cloneNode(true); c.setAttribute('aria-hidden', 'true'); return c;
+  });
+  beforeClones.forEach(function(c){ track.insertBefore(c, track.firstChild); });
+  afterClones.forEach(function(c){ track.appendChild(c); });
+
+  var pos = CLONE; // points at real index 0
+
+  function step(){
+    var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+    return originals[0].getBoundingClientRect().width + gap;
+  }
+
+  function render(animate){
+    track.style.transition = animate ? '' : 'none';
+    track.style.transform = 'translateX(' + (-pos * step()) + 'px)';
+    if(!animate){
+      track.getBoundingClientRect(); // force reflow before re-enabling transitions
+      track.style.transition = '';
+    }
+  }
+
+  function settle(){
+    if(pos < CLONE){ pos += total; render(false); }
+    else if(pos > CLONE + total - 1){ pos -= total; render(false); }
+  }
+
+  track.addEventListener('transitionend', function(e){
+    if(e.propertyName === 'transform') settle();
+  });
+
+  function go(dir){
+    pos += dir;
+    render(true);
+  }
+
+  prev.addEventListener('click', function(){ go(-1); });
+  next.addEventListener('click', function(){ go(1); });
+  window.addEventListener('resize', function(){ render(false); });
+
+  render(false);
+})();
+</script>
+
+<!-- =========================================
+     Tweaks panel
+     ========================================= -->
+<div id="tweaks-root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="assets/tweaks-panel.jsx"></script>
+
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "yearStyle": "arabic",
+  "accent": "#404d5c",
+  "heroImg": "pass-mussels",
+  "headlineStyle": "italic",
+  "showMarquee": true,
+  "darkHero": false,
+  "theme": "cream",
+  "serifFont": "Cormorant Garamond",
+  "sansFont": "Georgia",
+  "monoFont": "JetBrains Mono",
+  "headlineWeight": 300,
+  "headlineTracking": -25,
+  "baseSize": 17,
+  "sectionPad": 100,
+  "marqueeSpeed": 60,
+  "parallaxStrength": 100,
+  "reveal": "regular",
+  "grain": false,
+  "italicAccents": true,
+  "showNumerals": true,
+  "tagline": "The finest | in Scottish | *seafood*"
+}/*EDITMODE-END*/;
+
+const ROMAN  = { founded: "MCMXCI", range: "MCMXCI\u2013MMXXVI" };
+const ARABIC = { founded: "1991",   range: "1991\u20132026" };
+
+const HERO_IMAGES = {
+  "pass-mussels":  "Mussels at the pass",
+  "mussels-pasta": "Mussels & clams",
+  "seared-salmon": "Seared salmon",
+  "haddock":       "Pan-fried haddock",
+  "crab-burger":   "Soft-shell crab bun",
+  "sardines":      "Anster sardines",
+  "linguine":      "Seafood linguine",
+  "fish-pie":      "Fishers fish pie",
+  "shore-bar":     "The Shore Bar room",
+  "whisky":        "Whisky flight"
+};
+
+const ACCENT_OPTIONS = [
+  "#404d5c", // slate (default)
+  "#2F5A78", // ink sea
+  "#9A6B2F", // brass
+  "#4D6B3F", // moss
+  "#7B3A2A", // rust
+  "#5C3A6B", // heather
+  "#1F4D4A"  // forest
+];
+
+const SERIF_FONTS = [
+  "Cormorant Garamond", "Playfair Display", "EB Garamond",
+  "DM Serif Display", "Spectral", "Italiana", "Newsreader", "Lora"
+];
+const SANS_FONTS = [
+  "Source Sans 3", "IBM Plex Sans", "Manrope", "Nunito Sans", "Georgia"
+];
+const MONO_FONTS = [
+  "JetBrains Mono", "IBM Plex Mono", "Space Mono", "Inconsolata"
+];
+
+function applyTweaks(t){
+  const set = t.yearStyle === "roman" ? ROMAN : ARABIC;
+  document.querySelectorAll('[data-year="founded"]').forEach(el => el.textContent = set.founded);
+  document.querySelectorAll('[data-year-range]').forEach(el => el.textContent = set.range);
+
+  const root = document.documentElement;
+  root.style.setProperty('--brass-deep', t.accent);
+  root.style.setProperty('--brass', `color-mix(in oklch, ${t.accent} 72%, oklch(0.92 0.05 80))`);
+
+  // Hero — the poster/fallback image behind the video is controlled by the tweak.
+  const heroImg = document.querySelector('.hero-poster');
+  if(heroImg){
+    heroImg.src = `images/${t.heroImg}.jpg`;
+  }
+  const titleEm = document.querySelector('.hero-title em');
+  if(titleEm){
+    titleEm.style.fontStyle = t.headlineStyle === "upright" ? "normal" : "italic";
+  }
+  document.body.classList.toggle('hero-dark', !!t.darkHero);
+
+  // Marquee
+  const m = document.querySelector('.marquee');
+  if(m) m.style.display = t.showMarquee ? '' : 'none';
+  root.style.setProperty('--tw-marquee-speed', t.marqueeSpeed + 's');
+
+  // Theme
+  document.body.classList.remove('theme-cream','theme-paper','theme-stone','theme-night');
+  document.body.classList.add('theme-' + t.theme);
+
+  // Typography
+  root.style.setProperty('--tw-serif', `"${t.serifFont}", Georgia, serif`);
+  root.style.setProperty('--tw-sans',  `"${t.sansFont}", system-ui, sans-serif`);
+  root.style.setProperty('--tw-mono',  `"${t.monoFont}", ui-monospace, monospace`);
+  root.style.setProperty('--tw-headline-weight', t.headlineWeight);
+  root.style.setProperty('--tw-headline-tracking', (t.headlineTracking/1000) + 'em');
+  root.style.setProperty('--tw-base-size', t.baseSize + 'px');
+
+  // Layout
+  root.style.setProperty('--tw-section-pad', (t.sectionPad/100).toFixed(2));
+
+  // Effects
+  document.body.classList.remove('fx-none','fx-regular','fx-strong');
+  document.body.classList.add('fx-' + t.reveal);
+  document.body.classList.toggle('grain', !!t.grain);
+  document.body.classList.toggle('no-italics', !t.italicAccents);
+  document.body.classList.toggle('no-num', !t.showNumerals);
+
+  // Parallax strength — patches the data-parallax attribute live
+  document.querySelectorAll('[data-parallax]').forEach(el => {
+    const base = parseFloat(el.dataset.parallaxBase || el.dataset.parallax) || 0.12;
+    if(!el.dataset.parallaxBase) el.dataset.parallaxBase = base;
+    el.dataset.parallax = (base * (t.parallaxStrength/100)).toFixed(3);
+  });
+
+  // Tagline
+  const heroTitle = document.querySelector('.hero-title');
+  if(heroTitle && t.tagline){
+    // Only re-render if it changed (preserve <em> styling)
+    const cur = heroTitle.textContent.replace(/\s+/g,' ').trim();
+    if(cur !== t.tagline){
+      // Heuristic: if the tagline contains *word* asterisks, render those as the accent <em>
+      const html = t.tagline
+        .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+        .replace(/\|/g, '<br/>')
+        .replace(/\n/g, '<br/>');
+      heroTitle.innerHTML = html;
+      // Re-apply italic toggle to any new em
+      const e = heroTitle.querySelector('em');
+      if(e) e.style.fontStyle = t.headlineStyle === "upright" ? "normal" : "italic";
+    }
+  }
+}
+
+function FishersTweaks(){
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  React.useEffect(() => { applyTweaks(t); }, [t]);
+
+  return (
+    <TweaksPanel title="Tweaks">
+
+      <TweakSection label="Brand" />
+      <TweakText
+        label="Tagline"
+        value={t.tagline}
+        onChange={(v) => setTweak('tagline', v)}
+      />
+      <TweakRadio
+        label="Year format"
+        value={t.yearStyle}
+        options={[
+          { value: "arabic", label: "1991" },
+          { value: "roman",  label: "MCMXCI" }
+        ]}
+        onChange={(v) => setTweak('yearStyle', v)}
+      />
+      <TweakToggle label="Italic accents" value={t.italicAccents}
+                   onChange={(v) => setTweak('italicAccents', v)} />
+      <TweakToggle label="Show numerals (№)" value={t.showNumerals}
+                   onChange={(v) => setTweak('showNumerals', v)} />
+
+      <TweakSection label="Palette" />
+      <TweakColor
+        label="Accent"
+        value={t.accent}
+        options={ACCENT_OPTIONS}
+        onChange={(v) => setTweak('accent', v)}
+      />
+      <TweakSelect
+        label="Background"
+        value={t.theme}
+        options={[
+          { value: "cream", label: "Cream (warm)" },
+          { value: "paper", label: "Paper (warmer)" },
+          { value: "stone", label: "Stone (cool)" },
+          { value: "night", label: "Night (dark)" }
+        ]}
+        onChange={(v) => setTweak('theme', v)}
+      />
+
+      <TweakSection label="Typography" />
+      <TweakSelect
+        label="Display serif"
+        value={t.serifFont}
+        options={SERIF_FONTS}
+        onChange={(v) => setTweak('serifFont', v)}
+      />
+      <TweakSelect
+        label="Body sans"
+        value={t.sansFont}
+        options={SANS_FONTS}
+        onChange={(v) => setTweak('sansFont', v)}
+      />
+      <TweakSelect
+        label="Mono labels"
+        value={t.monoFont}
+        options={MONO_FONTS}
+        onChange={(v) => setTweak('monoFont', v)}
+      />
+      <TweakSlider label="Headline weight" value={t.headlineWeight}
+                   min={300} max={700} step={100}
+                   onChange={(v) => setTweak('headlineWeight', v)} />
+      <TweakSlider label="Headline tracking" value={t.headlineTracking}
+                   min={-40} max={20} step={1} unit="‰"
+                   onChange={(v) => setTweak('headlineTracking', v)} />
+      <TweakSlider label="Body size" value={t.baseSize}
+                   min={14} max={22} step={1} unit="px"
+                   onChange={(v) => setTweak('baseSize', v)} />
+
+      <TweakSection label="Hero" />
+      <TweakSelect
+        label="Hero photo"
+        value={t.heroImg}
+        options={Object.entries(HERO_IMAGES).map(([value, label]) => ({ value, label }))}
+        onChange={(v) => setTweak('heroImg', v)}
+      />
+      <TweakRadio
+        label="Headline"
+        value={t.headlineStyle}
+        options={[
+          { value: "italic",  label: "Italic" },
+          { value: "upright", label: "Upright" }
+        ]}
+        onChange={(v) => setTweak('headlineStyle', v)}
+      />
+      <TweakToggle label="Dark hero" value={t.darkHero}
+                   onChange={(v) => setTweak('darkHero', v)} />
+
+      <TweakSection label="Layout & rhythm" />
+      <TweakSlider label="Section padding" value={t.sectionPad}
+                   min={50} max={180} step={5} unit="%"
+                   onChange={(v) => setTweak('sectionPad', v)} />
+      <TweakSlider label="Marquee speed" value={t.marqueeSpeed}
+                   min={20} max={180} step={5} unit="s"
+                   onChange={(v) => setTweak('marqueeSpeed', v)} />
+      <TweakToggle label="Show accolades marquee" value={t.showMarquee}
+                   onChange={(v) => setTweak('showMarquee', v)} />
+
+      <TweakSection label="Motion & texture" />
+      <TweakRadio
+        label="Reveal"
+        value={t.reveal}
+        options={[
+          { value: "none",    label: "Off" },
+          { value: "regular", label: "On" },
+          { value: "strong",  label: "Bold" }
+        ]}
+        onChange={(v) => setTweak('reveal', v)}
+      />
+      <TweakSlider label="Parallax" value={t.parallaxStrength}
+                   min={0} max={300} step={10} unit="%"
+                   onChange={(v) => setTweak('parallaxStrength', v)} />
+      <TweakToggle label="Paper grain" value={t.grain}
+                   onChange={(v) => setTweak('grain', v)} />
+
+    </TweaksPanel>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<FishersTweaks />);
+</script>
+
+</body>
+</html>
