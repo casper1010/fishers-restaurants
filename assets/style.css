@@ -2892,6 +2892,7 @@ section{ position:relative; }
   .nav{
     display:flex;
     position:fixed; inset:0;
+    height:100vh; height:100dvh;
     flex-direction:column; align-items:center; justify-content:center;
     gap:34px;
     background:var(--cream);
@@ -2900,11 +2901,26 @@ section{ position:relative; }
        the full-screen overlay was semi-transparent, letting the page
        underneath show through and visually collide with the nav links. */
     transform:translateY(-100%);
+    /* Belt-and-braces on top of the transform: mobile Safari's address bar
+       hides on scroll, which changes the visual viewport height after the
+       -100% offset was already computed, so the slide-up amount can drift
+       out of sync and leave a sliver of the "closed" nav peeking in over
+       the page (and it was invisible to taps thanks to pointer-events, so
+       it just sat there uselessly). visibility:hidden doesn't depend on
+       any of that math — it's an unconditional guarantee the panel is
+       fully gone when closed. Delayed on the way out so the slide-up
+       animation still plays; instant on the way in. */
+    visibility:hidden;
     pointer-events:none;
-    transition:transform .45s cubic-bezier(.2,.6,.2,1);
+    transition:transform .45s cubic-bezier(.2,.6,.2,1), visibility 0s linear .45s;
     z-index:65;
   }
-  .site-header.nav-open .nav{ transform:translateY(0); pointer-events:auto; }
+  .site-header.nav-open .nav{
+    transform:translateY(0);
+    visibility:visible;
+    pointer-events:auto;
+    transition:transform .45s cubic-bezier(.2,.6,.2,1), visibility 0s linear 0s;
+  }
   .nav a{ font-size:26px; color:var(--ink-deep) !important; }
   .hero-meta{ grid-template-columns: repeat(2, 1fr); gap:24px; }
   .hero-tag{ display:none; }
