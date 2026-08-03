@@ -518,23 +518,26 @@ section{ position:relative; }
      fade the poster to opacity:0 even with the video hidden here, leaving
      a blank hero. */
   .hero-video-wrap{ display:none; }
-  /* The logo stays centered on mobile (matching the restaurant pages'
-     centered hero logos) rather than being moved — instead the photo
-     itself is cropped so the mussel bowls land below center instead of
-     right on top of the logo. Row-brightness analysis of the actual
-     photo confirmed the lit bowls span roughly 40-70% down the source
-     image. With this scale + top-anchored origin, the viewport's
-     vertical center (~50%, where the centered logo sits) maps to only
-     ~38% down the source — right before the bowls start — while the
-     bowls themselves land around 52% down the viewport onward, sitting
-     essentially flush against the logo. Nudged from 1.35 to 1.3 (shows
-     ~77% of the photo's height) — this is at/near the floor: going
-     lower risks the logo starting to overlap the bowls. */
-  .hero-poster{
+  /* Reverted to the original mobile crop — no extra transform, just the
+     base .hero-poster object-fit:cover / object-position:center 35%.
+     (The zoomed "bowls below the logo" crop we iterated on — ending at
+     scale(1.3) — is preserved below as .hero-poster-v2 / OPTION 2 in
+     case we want to switch back to it.) */
+}
+/* ===== OPTION 2 — saved, not currently applied =====
+   The cropped/zoomed mobile hero treatment from this session's
+   iteration (logo centered, photo scaled so the mussel bowls land
+   just below it). To restore: rename this selector to `.hero-poster`
+   inside the `@media (max-width: 760px)` block above (or add
+   class="hero-poster-v2" to the poster <img> and duplicate this rule
+   under that same media query).
+@media (max-width: 760px){
+  .hero-poster-v2{
     transform: scale(1.3);
     transform-origin: center top;
   }
 }
+===== END OPTION 2 ===== */
 .hero-scrim{
   position:absolute;
   inset:0;
