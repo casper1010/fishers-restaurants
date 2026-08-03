@@ -46,6 +46,20 @@
     revealEls.forEach(el=> el.classList.add('in'));
   }
 
+  // ---------- Mobile house-card background peek ----------
+  // Desktop reveals each house's background photo on :hover; touch devices
+  // have no hover, so on narrow viewports briefly reveal it instead as each
+  // card scrolls through the viewport (toggles with intersection, so it
+  // fades in as the card comes into view and back out once it's scrolled
+  // past — see .house.bg-peek in style.css).
+  const houseEls = document.querySelectorAll('.house');
+  if(houseEls.length && 'IntersectionObserver' in window && window.matchMedia('(max-width: 1000px)').matches){
+    const houseIo = new IntersectionObserver((entries)=>{
+      entries.forEach(e=> e.target.classList.toggle('bg-peek', e.isIntersecting));
+    }, { threshold: 0.5 });
+    houseEls.forEach(el=> houseIo.observe(el));
+  }
+
   // ---------- Parallax on .parallax img ----------
   const pxEls = document.querySelectorAll('[data-parallax]');
   function onScrollPX(){

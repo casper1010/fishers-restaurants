@@ -746,6 +746,12 @@ section{ position:relative; }
   background: linear-gradient(180deg, oklch(0.08 0.03 250 / 0) 30%, oklch(0.08 0.03 250 / 0.82) 100%);
 }
 .house:hover .house-bg{ opacity:1; transform:scale(1); }
+/* Mobile equivalent of the hover reveal above — there's no hover on
+   touch, so JS (script.js, search "bg-peek") toggles this class via
+   IntersectionObserver as each house card scrolls through the viewport,
+   briefly showing the background photo instead of it staying hidden
+   until tapped. */
+.house.bg-peek .house-bg{ opacity:1; transform:scale(1); }
 /* ghost numeral */
 .house .ghost{
   position:absolute; top:10px; right:20px; z-index:1;
