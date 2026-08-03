@@ -3348,7 +3348,7 @@ body[data-page="shore"] .site-header:not(.scrolled) .header-mark img{ filter:non
    mobile position (tuned separately) is untouched. */
 @media (min-width: 1001px){
   .story-text::after{
-    bottom: clamp(14px, 1vw, 30px);
+    bottom: clamp(24px, 1vw, 40px);
     right: clamp(120px, 14vw, 220px);
   }
 }
