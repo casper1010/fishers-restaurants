@@ -265,6 +265,62 @@ section{ position:relative; }
   transition: opacity 0.2s ease;
 }
 .footer-inner .col a:hover{ opacity:1; color:var(--brass); }
+/* "Contact Us" footer button — opens a small popover to pick which house's
+   email to use, instead of every page mailto-ing a different address with
+   an identical-looking link. See script.js, search "footer-contact". */
+.footer-contact{ position:relative; }
+.footer-contact-toggle{
+  font-family:var(--serif);
+  font-size:23px;
+  font-style:italic;
+  color:var(--cream);
+  opacity:0.85;
+  background:none;
+  border:0;
+  padding:0;
+  cursor:pointer;
+  transition: opacity 0.2s ease;
+}
+.footer-contact-toggle:hover,
+.footer-contact.is-open .footer-contact-toggle{ opacity:1; color:var(--brass); }
+.footer-contact-menu{
+  list-style:none;
+  margin:0;
+  padding:8px 0;
+  position:absolute;
+  left:50%;
+  bottom:calc(100% + 16px);
+  transform:translateX(-50%);
+  min-width:230px;
+  background:var(--cream);
+  border-radius:4px;
+  box-shadow:0 20px 48px rgba(0,0,0,0.32);
+  z-index:20;
+}
+.footer-contact-menu[hidden]{ display:none; }
+.footer-contact-menu li + li{ border-top:1px solid color-mix(in oklch, var(--ink) 10%, transparent); }
+.footer-contact-menu a{
+  display:block;
+  padding:11px 22px;
+  font-family:var(--serif);
+  font-size:16px;
+  font-style:italic;
+  color:var(--ink-deep);
+  opacity:1;
+  white-space:nowrap;
+  text-align:center;
+}
+.footer-contact-menu a:hover{ color:var(--brass-deep); background:color-mix(in oklch, var(--brass) 10%, transparent); }
+/* small caret pointing from the popover down to the button */
+.footer-contact-menu::after{
+  content:"";
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform:translateX(-50%);
+  border:7px solid transparent;
+  border-top-color:var(--cream);
+}
 .footer-inner address{
   font-style:normal;
   font-size:17px;

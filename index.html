@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Fishers — Edinburgh Seafood, Est. 1991</title>
 <meta name="description" content="A small Scottish family of fish restaurants on the Firth of Forth. Three houses in Edinburgh: Fishers in Leith, Fishers in the City, and The Shore Bar." />
-<link rel="stylesheet" href="assets/style.css?v=33" />
+<link rel="stylesheet" href="assets/style.css?v=34" />
 <link rel="stylesheet" href="assets/booking.css" />
 
 <!-- Optional fonts (loaded once; tweak panel swaps between them) -->
@@ -557,7 +557,14 @@
       <ul>
         <li><a href="https://www.instagram.com/fishersrestaurants/" target="_blank" rel="noopener">Instagram</a></li>
         <li><a href="https://vouchers.resdiary.com/Fishersinthecity1" target="_blank" rel="noopener">Gift Vouchers</a></li>
-        <li><a href="mailto:city@fishersrestaurantgroup.co.uk">Contact Us</a></li>
+        <li class="footer-contact">
+          <button type="button" class="footer-contact-toggle" aria-haspopup="true" aria-expanded="false">Contact Us</button>
+          <ul class="footer-contact-menu" hidden>
+            <li><a href="mailto:leith@fishersrestaurantgroup.co.uk">Fishers in Leith</a></li>
+            <li><a href="mailto:city@fishersrestaurantgroup.co.uk">Fishers in the City</a></li>
+            <li><a href="mailto:theshorebar@fishersrestaurantgroup.co.uk">The Shore Bar</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
@@ -568,7 +575,7 @@
   </div>
 </footer>
 
-<script src="assets/script.js?v=7"></script>
+<script src="assets/script.js?v=8"></script>
 <script src="assets/booking.js"></script>
 
 <!-- Hero video: reveal only once playing (hides YouTube's startup chrome) + seamless loop -->

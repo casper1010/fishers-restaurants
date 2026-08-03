@@ -183,4 +183,34 @@
     onScrollBook();
   }
 
+  // ---------- Footer "Contact Us" restaurant picker ----------
+  // One shared button instead of each page mailto-ing a different address
+  // under an identical-looking link — clicking it opens a small popover to
+  // choose which house's email to use.
+  document.querySelectorAll('.footer-contact').forEach((wrap)=>{
+    const toggle = wrap.querySelector('.footer-contact-toggle');
+    const menu = wrap.querySelector('.footer-contact-menu');
+    if(!toggle || !menu) return;
+    function close(){
+      menu.hidden = true;
+      wrap.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+    function open(){
+      menu.hidden = false;
+      wrap.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+    toggle.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      if(menu.hidden) open(); else close();
+    });
+    document.addEventListener('click', (e)=>{
+      if(!wrap.contains(e.target)) close();
+    });
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') close();
+    });
+  });
+
 })();
