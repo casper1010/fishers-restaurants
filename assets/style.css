@@ -518,6 +518,16 @@ section{ position:relative; }
      fade the poster to opacity:0 even with the video hidden here, leaving
      a blank hero. */
   .hero-video-wrap{ display:none; }
+  /* Zoom in on the poster, anchored low in the frame (the dark counter
+     edge / arm / clothing below the mussel bowls), so that region — not
+     the illuminated plates — lines up with the bottom of the screen where
+     the "fishers" logo sits (.hero is justify-content:flex-end). Without
+     this, on a narrow/tall phone viewport the full photo height fits with
+     little to no vertical crop, so the logo lands right on the plates. */
+  .hero-poster{
+    transform: scale(1.55);
+    transform-origin: center 78%;
+  }
 }
 .hero-scrim{
   position:absolute;
