@@ -48,36 +48,29 @@
 
   // ---------- Mobile house-card background peek ----------
   // Desktop reveals each house's background photo on :hover; touch devices
-  // have no hover, so on narrow viewports briefly flash it on instead as
-  // each card scrolls into view — see .house.bg-peek in style.css.
-  // Previously this toggled the class for as long as the card stayed
-  // >=50% visible, which at a normal scroll speed (or if the user pauses)
-  // could mean it stays on for several seconds — "constantly on" rather
-  // than a brief flash. Now it's a fixed-duration flash on entry instead,
-  // timed regardless of how long the card remains in view.
+  // have no hover, so on narrow viewports show it instead based on scroll
+  // position: whichever card's center is closest to dead-center of the
+  // screen gets the photo, and it switches back to white as soon as the
+  // card scrolls off that point — not a timed flash, tied directly to
+  // scroll position so it tracks back and forth with the user.
   const houseEls = document.querySelectorAll('.house');
-  if(houseEls.length && 'IntersectionObserver' in window && window.matchMedia('(max-width: 1000px)').matches){
-    const houseIo = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        const el = e.target;
-        if(!e.isIntersecting){
-          // Scrolled past before the delayed reveal below fired — cancel
-          // it so the photo doesn't pop up right as/after it's left view.
-          clearTimeout(el._bgPeekShowTimer);
-          return;
-        }
-        // Wait a full second after the card comes into view before
-        // showing the photo, so there's time to read the name/address
-        // first — it was popping up immediately, too fast to read past.
-        clearTimeout(el._bgPeekShowTimer);
-        el._bgPeekShowTimer = setTimeout(()=>{
-          el.classList.add('bg-peek');
-          clearTimeout(el._bgPeekTimer);
-          el._bgPeekTimer = setTimeout(()=> el.classList.remove('bg-peek'), 1000);
-        }, 1000);
+  if(houseEls.length && window.matchMedia('(max-width: 1000px)').matches){
+    // How close to dead-center (as a fraction of viewport height) a card's
+    // midpoint needs to be for its photo to show.
+    const CENTER_ZONE = 0.16;
+    function onScrollHouses(){
+      const vh = window.innerHeight;
+      const screenCenter = vh / 2;
+      houseEls.forEach(el=>{
+        const r = el.getBoundingClientRect();
+        const cardCenter = r.top + r.height / 2;
+        const dist = Math.abs(cardCenter - screenCenter);
+        el.classList.toggle('bg-peek', dist < vh * CENTER_ZONE);
       });
-    }, { threshold: 0.3 });
-    houseEls.forEach(el=> houseIo.observe(el));
+    }
+    window.addEventListener('scroll', onScrollHouses, { passive:true });
+    window.addEventListener('resize', onScrollHouses);
+    onScrollHouses();
   }
 
   // ---------- Parallax on .parallax img ----------

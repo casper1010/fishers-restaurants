@@ -756,10 +756,10 @@ section{ position:relative; }
 }
 .house:hover .house-bg{ opacity:1; transform:scale(1); }
 /* Mobile equivalent of the hover reveal above — there's no hover on
-   touch, so JS (script.js, search "bg-peek") toggles this class via
-   IntersectionObserver as each house card scrolls through the viewport,
-   briefly showing the background photo instead of it staying hidden
-   until tapped. */
+   touch, so JS (script.js, search "bg-peek") toggles this class on scroll:
+   whichever card's center is nearest dead-center of the screen shows its
+   photo, and it switches back off as soon as the card scrolls away from
+   that point. */
 .house.bg-peek .house-bg{ opacity:1; transform:scale(1); }
 /* ghost numeral */
 .house .ghost{
