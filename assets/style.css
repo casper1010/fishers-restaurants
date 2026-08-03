@@ -525,11 +525,13 @@ section{ position:relative; }
      photo confirmed the lit bowls span roughly 40-70% down the source
      image. With this scale + top-anchored origin, the viewport's
      vertical center (~50%, where the centered logo sits) maps to only
-     ~31% down the source — well before the bowls start — while the
-     bowls themselves land around 65% down the viewport onward, clearly
-     below the logo. */
+     ~33% down the source — well before the bowls start — while the
+     bowls themselves land around 60% down the viewport onward, clearly
+     below the logo. Dialed back from 1.6 to 1.5 (shows ~67% of the
+     photo's height instead of ~62%) per feedback that 1.6 felt too
+     tightly cropped/dramatic. */
   .hero-poster{
-    transform: scale(1.6);
+    transform: scale(1.5);
     transform-origin: center top;
   }
 }
