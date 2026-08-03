@@ -3342,6 +3342,16 @@ body[data-page="shore"] .site-header:not(.scrolled) .header-mark img{ filter:non
   mask-position: center;
   pointer-events: none;
 }
+/* On desktop, shift the seal down and to the left (southwest) so it isn't
+   crowded right up against the paragraph text — landing closer to the
+   "— The Millars" signature line instead. Scoped to desktop only so the
+   mobile position (tuned separately) is untouched. */
+@media (min-width: 1001px){
+  .story-text::after{
+    bottom: clamp(4px, 1vw, 20px);
+    right: clamp(120px, 14vw, 220px);
+  }
+}
 /* footer waves: drop the too-perfect brass glint lines */
 .footer-waves path[stroke]{ display: none; }
 
