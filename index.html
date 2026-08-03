@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Fishers — Edinburgh Seafood, Est. 1991</title>
 <meta name="description" content="A small Scottish family of fish restaurants on the Firth of Forth. Three houses in Edinburgh: Fishers in Leith, Fishers in the City, and The Shore Bar." />
-<link rel="stylesheet" href="assets/style.css?v=15" />
+<link rel="stylesheet" href="assets/style.css?v=16" />
 <link rel="stylesheet" href="assets/booking.css" />
 
 <!-- Optional fonts (loaded once; tweak panel swaps between them) -->
@@ -568,6 +568,13 @@
 <script>
 (function(){
   var poster = document.querySelector('.hero-poster');
+  // On phones, skip loading/playing the YouTube video entirely — show the
+  // static poster only. Matches the .hero-video-wrap{display:none} rule
+  // in style.css at the same breakpoint; without this early return, the
+  // fallback timer below would still fade the (now-hidden) poster to
+  // opacity:0 after 2.6s regardless, leaving a blank hero.
+  if(window.matchMedia('(max-width: 760px)').matches) return;
+
   var reveal = function(){ if(poster) poster.classList.add('is-hidden'); };
   // Safety net: never leave the poster up forever if the API can't load
   var fallback = setTimeout(reveal, 2600);

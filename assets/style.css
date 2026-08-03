@@ -510,6 +510,15 @@ section{ position:relative; }
   /* honour reduced-motion: hide the autoplaying video, keep the poster */
   .hero-video-wrap{ display:none; }
 }
+@media (max-width: 760px){
+  /* Static image instead of the autoplaying video on phones — saves data
+     and battery, and sidesteps mobile browsers throttling/blocking
+     autoplaying video anyway. The matching JS skip is in index.html
+     (search "hero-poster"): without it, a 2.6s fallback timer would still
+     fade the poster to opacity:0 even with the video hidden here, leaving
+     a blank hero. */
+  .hero-video-wrap{ display:none; }
+}
 .hero-scrim{
   position:absolute;
   inset:0;
