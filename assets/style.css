@@ -525,13 +525,13 @@ section{ position:relative; }
      photo confirmed the lit bowls span roughly 40-70% down the source
      image. With this scale + top-anchored origin, the viewport's
      vertical center (~50%, where the centered logo sits) maps to only
-     ~37% down the source — well before the bowls start — while the
-     bowls themselves land around 54% down the viewport onward, sitting
-     right up against the logo. Nudged in further from 1.4 to 1.35
-     (shows ~74% of the photo's height) — this is close to the tightest
-     gap possible before the logo starts overlapping the bowls. */
+     ~38% down the source — right before the bowls start — while the
+     bowls themselves land around 52% down the viewport onward, sitting
+     essentially flush against the logo. Nudged from 1.35 to 1.3 (shows
+     ~77% of the photo's height) — this is at/near the floor: going
+     lower risks the logo starting to overlap the bowls. */
   .hero-poster{
-    transform: scale(1.35);
+    transform: scale(1.3);
     transform-origin: center top;
   }
 }
