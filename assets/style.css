@@ -529,9 +529,13 @@ section{ position:relative; }
      has flex:1, so it fills the hero's full height regardless of the
      outer justify-content, and its OWN justify-content:center is what was
      actually centering the logo (landing right on the bowls). Overriding
-     .hero-content's justify-content directly is what actually moves it. */
+     .hero-content's justify-content directly is what actually moves it.
+     (The .hero-content override itself has to live AFTER the base
+     .hero-content rule below — same specificity, so source order decides
+     the tie. It was here originally, before that base rule, so it was
+     silently losing every time despite the media query matching. Moved
+     to right after .hero-mark below.) */
   .hero{ justify-content:flex-start; }
-  .hero-content{ justify-content:flex-start; padding-top:24px; }
 }
 .hero-scrim{
   position:absolute;
@@ -579,6 +583,13 @@ section{ position:relative; }
   flex-direction:column;
   align-items:center;
   justify-content:center;
+}
+@media (max-width: 760px){
+  /* Must come after the base .hero-content rule above — same selector
+     specificity, so whichever is later in the file wins the cascade tie
+     even when this media query matches. This was previously declared
+     earlier in the file (before that base rule) and so had no effect. */
+  .hero-content{ justify-content:flex-start; padding-top:24px; }
 }
 .hero-logo{
   width: clamp(140px, 20vw, 320px);

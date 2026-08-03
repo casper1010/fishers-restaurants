@@ -48,15 +48,24 @@
 
   // ---------- Mobile house-card background peek ----------
   // Desktop reveals each house's background photo on :hover; touch devices
-  // have no hover, so on narrow viewports briefly reveal it instead as each
-  // card scrolls through the viewport (toggles with intersection, so it
-  // fades in as the card comes into view and back out once it's scrolled
-  // past — see .house.bg-peek in style.css).
+  // have no hover, so on narrow viewports briefly flash it on instead as
+  // each card scrolls into view — see .house.bg-peek in style.css.
+  // Previously this toggled the class for as long as the card stayed
+  // >=50% visible, which at a normal scroll speed (or if the user pauses)
+  // could mean it stays on for several seconds — "constantly on" rather
+  // than a brief flash. Now it's a fixed-duration flash on entry instead,
+  // timed regardless of how long the card remains in view.
   const houseEls = document.querySelectorAll('.house');
   if(houseEls.length && 'IntersectionObserver' in window && window.matchMedia('(max-width: 1000px)').matches){
     const houseIo = new IntersectionObserver((entries)=>{
-      entries.forEach(e=> e.target.classList.toggle('bg-peek', e.isIntersecting));
-    }, { threshold: 0.5 });
+      entries.forEach(e=>{
+        if(!e.isIntersecting) return;
+        const el = e.target;
+        el.classList.add('bg-peek');
+        clearTimeout(el._bgPeekTimer);
+        el._bgPeekTimer = setTimeout(()=> el.classList.remove('bg-peek'), 1000);
+      });
+    }, { threshold: 0.3 });
     houseEls.forEach(el=> houseIo.observe(el));
   }
 
