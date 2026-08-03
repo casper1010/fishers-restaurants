@@ -283,7 +283,14 @@ section{ position:relative; }
 }
 .footer-contact-toggle:hover,
 .footer-contact.is-open .footer-contact-toggle{ opacity:1; color:var(--brass); }
-.footer-contact-menu{
+/* Scoped as `.footer-inner .col .footer-contact-menu` (not just
+   `.footer-contact-menu`) throughout below: the generic `.footer-inner
+   .col ul` / `.footer-inner .col a` rules above have higher specificity
+   (3 classes / 2 classes+tag) than a bare `.footer-contact-menu` or
+   `.footer-contact-menu a` would, so without matching that specificity
+   the popover stayed visibly `display:flex` even with [hidden] set, and
+   links stayed the footer's cream color instead of this. */
+.footer-inner .col .footer-contact-menu{
   list-style:none;
   margin:0;
   padding:8px 0;
@@ -297,20 +304,24 @@ section{ position:relative; }
   box-shadow:0 20px 48px rgba(0,0,0,0.32);
   z-index:20;
 }
-.footer-contact-menu[hidden]{ display:none; }
+.footer-inner .col .footer-contact-menu[hidden]{ display:none; }
 .footer-contact-menu li + li{ border-top:1px solid color-mix(in oklch, var(--ink) 10%, transparent); }
-.footer-contact-menu a{
+/* Hairline/citation treatment (see .r-quote-text cite) instead of the
+   footer's usual italic serif links. */
+.footer-inner .col .footer-contact-menu a{
   display:block;
-  padding:11px 22px;
-  font-family:var(--serif);
-  font-size:16px;
-  font-style:italic;
-  color:var(--ink-deep);
+  padding:13px 24px;
+  font-family:var(--mono);
+  font-style:normal;
+  font-size:11.5px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--brass-deep);
   opacity:1;
   white-space:nowrap;
   text-align:center;
 }
-.footer-contact-menu a:hover{ color:var(--brass-deep); background:color-mix(in oklch, var(--brass) 10%, transparent); }
+.footer-inner .col .footer-contact-menu a:hover{ color:var(--ink-deep); background:color-mix(in oklch, var(--brass) 10%, transparent); }
 /* small caret pointing from the popover down to the button */
 .footer-contact-menu::after{
   content:"";
