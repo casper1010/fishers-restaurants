@@ -32,7 +32,10 @@
 
   document.querySelectorAll('.menu-course-group[data-course]').forEach(function(group){
     var course = group.getAttribute('data-course');
-    var query = encodeURIComponent('*[_type=="' + DOC_TYPE + '" && category=="' + course + '" && available!=false] | order(name asc){name,description,price}');
+    // Sorted by orderRank (the manual drag-and-drop order set in Sanity's
+    // Studio "Menus" reorder lists), falling back to name for any item
+    // that predates that field / was added outside the ordered lists.
+    var query = encodeURIComponent('*[_type=="' + DOC_TYPE + '" && category=="' + course + '" && available!=false] | order(orderRank asc, name asc){name,description,price}');
 
     fetch(API + '?query=' + query)
       .then(function(r){ return r.json(); })
