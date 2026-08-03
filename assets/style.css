@@ -518,15 +518,19 @@ section{ position:relative; }
      fade the poster to opacity:0 even with the video hidden here, leaving
      a blank hero. */
   .hero-video-wrap{ display:none; }
-  /* Zoom in on the poster, anchored at the TOP of the frame, so the
-     kitchen-shelf backdrop above the mussel bowls fills most of the
-     screen — including where the "fishers" logo sits near the bottom
-     (.hero is justify-content:flex-end) — and the bowls themselves only
-     just peek in at the very bottom edge, below the logo. */
-  .hero-poster{
-    transform: scale(2.2);
-    transform-origin: center top;
-  }
+  /* The mussel bowls sit almost exactly in the vertical middle of this
+     photo. Two zoom attempts tried to solve the logo/bowls overlap purely
+     via image cropping — one dragged the bowls up into the logo's spot,
+     the other over-zoomed and cropped the bowls out entirely along with
+     bringing in messier parts of the photo (a stranger's hair, kitchen
+     clutter). Neither works well because the logo is locked to the
+     bottom of the screen (.hero below), so nothing but an extreme, ugly
+     crop can put it "above" bowls sitting at the vertical center.
+     Repositioning the logo itself to the top of the screen instead is
+     the reliable fix — the poster stays at its natural, un-zoomed crop
+     (.hero-poster has no transform here) so the bowls remain visible,
+     lower in frame, clearly below the logo. */
+  .hero{ justify-content:flex-start; }
 }
 .hero-scrim{
   position:absolute;
