@@ -59,11 +59,22 @@
   if(houseEls.length && 'IntersectionObserver' in window && window.matchMedia('(max-width: 1000px)').matches){
     const houseIo = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
-        if(!e.isIntersecting) return;
         const el = e.target;
-        el.classList.add('bg-peek');
-        clearTimeout(el._bgPeekTimer);
-        el._bgPeekTimer = setTimeout(()=> el.classList.remove('bg-peek'), 1000);
+        if(!e.isIntersecting){
+          // Scrolled past before the delayed reveal below fired — cancel
+          // it so the photo doesn't pop up right as/after it's left view.
+          clearTimeout(el._bgPeekShowTimer);
+          return;
+        }
+        // Wait half a second after the card comes into view before
+        // showing the photo, so there's time to read the name/address
+        // first — it was popping up immediately, too fast to read past.
+        clearTimeout(el._bgPeekShowTimer);
+        el._bgPeekShowTimer = setTimeout(()=>{
+          el.classList.add('bg-peek');
+          clearTimeout(el._bgPeekTimer);
+          el._bgPeekTimer = setTimeout(()=> el.classList.remove('bg-peek'), 1000);
+        }, 500);
       });
     }, { threshold: 0.3 });
     houseEls.forEach(el=> houseIo.observe(el));
