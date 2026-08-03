@@ -286,6 +286,13 @@
 
   @media (max-width: 600px){
     .ig-head{ grid-template-columns: 1fr; gap:18px; }
+    /* 480px min-height exists to stop the page jumping while the
+       Curator.io embed loads async, but that height was tuned for
+       desktop's wider grid — on a narrow phone the tiles reflow shorter,
+       leaving a large empty gap below them before the CTA section.
+       Smaller reserved height here still avoids the load-in jump without
+       the excess dead space. */
+    .ig-curator{ min-height: 260px; }
   }
 </style>
 </head>
