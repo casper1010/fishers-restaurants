@@ -2742,10 +2742,10 @@ section{ position:relative; }
     padding: clamp(72px, 9vh, 120px) var(--gutter);
   }
   .about-band .about-title{
-    font-size: clamp(30px, 3.7vw, 51px);
+    font-size: clamp(30px, 3.9vw, 54px);
   }
   .about-band p{
-    font-size: clamp(19px, 1.9vw, 28px);
+    font-size: clamp(19px, 2vw, 29px);
     max-width: 62ch;
   }
   .about-band .about-feature{ margin-bottom: 32px; }
