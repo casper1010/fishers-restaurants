@@ -2803,6 +2803,7 @@ section{ position:relative; }
   vertical-align:middle;
   border:1px solid currentColor;
   padding:2px 6px;
+  white-space:nowrap;
 }
 
 /* Featured steak block */
