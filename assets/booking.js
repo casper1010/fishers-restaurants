@@ -44,6 +44,7 @@
         '<div class="bk-head">' +
           '<p class="bk-tag"></p>' +
           '<h3 class="bk-title"></h3>' +
+          '<p class="bk-note">For parties over 4, please call</p>' +
           '<button class="bk-close" type="button" aria-label="Close booking">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">' +
               '<line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>' +
