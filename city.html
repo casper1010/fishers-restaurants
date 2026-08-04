@@ -396,14 +396,14 @@
 
         <!-- Shared note for both grill items — sits outside the Sanity-backed
              group above (which JS empties/rebuilds on load) so this survives
-             untouched. Styled like the Fish & Chips Classic/Deluxe list. -->
+             untouched. Treated like its own compact menu-item (name + price)
+             rather than a stacked list. -->
         <div class="menu-item rv" style="margin-top:20px;">
-          <p class="desc">Choice of sauce — 3 &mdash;</p>
-          <ul class="menu-serves">
-            <li><span class="s-name">Brandy &amp; peppercorn</span></li>
-            <li><span class="s-name">Blue cheese</span></li>
-            <li><span class="s-name">Garlic &amp; herb butter</span></li>
-          </ul>
+          <div class="row1">
+            <span class="name">Choice of sauce</span>
+            <span class="price">3</span>
+          </div>
+          <p class="desc">Brandy &amp; peppercorn &middot; Blue cheese &middot; Garlic &amp; herb butter</p>
         </div>
       </div>
     </div>
