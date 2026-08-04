@@ -2059,7 +2059,12 @@ section{ position:relative; }
   text-align: center;
   align-items: center;
   max-width: 60ch;
-  padding: clamp(40px, 5vw, 74px) clamp(40px, 7vw, 120px);
+  /* Vertical clamp floor raised from 40px to 64px for more breathing room
+     around the quote on mobile, where the vw component is tiny and the
+     padding was effectively sitting at that floor — desktop is
+     unaffected since its width already pushes past the new floor via
+     the vw scaling. */
+  padding: clamp(64px, 8vw, 90px) clamp(40px, 7vw, 120px);
 }
 .r-q-centered .r-quote-rule{
   display: block;
