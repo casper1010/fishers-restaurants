@@ -493,6 +493,10 @@ section{ position:relative; }
      to avoid duplicating every item; the between-item .star separators
      are hidden too since each item now gets its own pair of diamonds via
      ::before/::after instead. */
+  /* Larger, more legible, more substantial block — was cramped at the
+     base clamp(28px,4vw,56px) size (4vw only works out to ~16-17px on a
+     phone, so it sat at the 28px floor) with tight 16px spacing. */
+  .marquee{ padding:48px 0; }
   .marquee-track{
     animation:none;
     transform:none;
@@ -500,28 +504,29 @@ section{ position:relative; }
     align-items:center;
     width:auto;
     white-space:normal;
-    row-gap:16px;
+    row-gap:30px;
     text-align:center;
+    font-size:clamp(30px, 8vw, 40px);
   }
   .marquee-track > span:not([aria-hidden]){
     flex-direction:column;
     align-items:center;
-    row-gap:16px;
+    row-gap:30px;
   }
   .marquee-track > span[aria-hidden="true"]{ display:none; }
   .marquee-track > span:not([aria-hidden]) > .star{ display:none; }
-  .marquee-track em{ font-style:italic; }
+  .marquee-track em{ font-style:italic; line-height:1.2; }
   .marquee-track em::before,
   .marquee-track em::after{
     content:"✦";
     display:inline-block;
     font-style:normal;
-    font-size:0.55em;
+    font-size:0.5em;
     color:var(--brass);
     vertical-align:middle;
   }
-  .marquee-track em::before{ margin-right:12px; }
-  .marquee-track em::after{ margin-left:12px; }
+  .marquee-track em::before{ margin-right:14px; }
+  .marquee-track em::after{ margin-left:14px; }
 }
 
 /* ---------- Numerals ---------- */
