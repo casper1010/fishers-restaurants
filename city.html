@@ -396,14 +396,17 @@
 
         <!-- Shared note for both grill items — sits outside the Sanity-backed
              group above (which JS empties/rebuilds on load) so this survives
-             untouched. Treated like its own compact menu-item (name + price)
-             rather than a stacked list. -->
+             untouched. Same dotted-leader list treatment as the Oysters
+             block above. -->
         <div class="menu-item rv" style="margin-top:20px;">
           <div class="row1">
             <span class="name">Choice of sauce</span>
-            <span class="price">3</span>
           </div>
-          <p class="desc">Brandy &amp; peppercorn &middot; Blue cheese &middot; Garlic &amp; herb butter</p>
+          <ul class="menu-serves">
+            <li><span class="s-name">Brandy &amp; peppercorn</span><span class="dots"></span><span class="s-price">3</span></li>
+            <li><span class="s-name">Blue cheese</span><span class="dots"></span><span class="s-price">3</span></li>
+            <li><span class="s-name">Garlic &amp; herb butter</span><span class="dots"></span><span class="s-price">3</span></li>
+          </ul>
         </div>
       </div>
     </div>
