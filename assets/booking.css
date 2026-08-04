@@ -80,13 +80,17 @@
 }
 .bk-title em{ font-style: normal; }
 .bk-note{
-  font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(15px, 2vw, 18px);
-  letter-spacing: 0.01em;
-  color: var(--brass, #c79a5b);
-  margin: 8px 0 0;
+  display: inline-block;
+  margin: 12px 0 0;
+  padding: 7px 14px;
+  background: var(--brass, #c79a5b);
+  color: var(--ink-deep, #14202c);
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 3px;
 }
 
 .bk-close{
