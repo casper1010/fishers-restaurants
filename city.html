@@ -382,7 +382,7 @@
             <span class="name">10oz Ribeye</span>
             <span class="price">42</span>
           </div>
-          <p class="desc">Borders reared matured prime Scotch beef, hung 24 days. Served with mushrooms, spinach &amp; chips. Choice of sauce — 3: brandy &amp; peppercorn, blue cheese, or garlic &amp; herb butter</p>
+          <p class="desc">Borders reared matured prime Scotch beef, hung 24 days. Served with mushrooms, spinach &amp; chips.</p>
         </div>
 
         <div class="menu-item rv">
@@ -390,8 +390,20 @@
             <span class="name">8oz Fillet Steak</span>
             <span class="price">46</span>
           </div>
-          <p class="desc">Borders reared matured prime Scotch beef, hung 24 days. Served with mushrooms, spinach &amp; chips. Choice of sauce — 3: brandy &amp; peppercorn, blue cheese, or garlic &amp; herb butter</p>
+          <p class="desc">Borders reared matured prime Scotch beef, hung 24 days. Served with mushrooms, spinach &amp; chips.</p>
         </div>
+        </div>
+
+        <!-- Shared note for both grill items — sits outside the Sanity-backed
+             group above (which JS empties/rebuilds on load) so this survives
+             untouched. Styled like the Fish & Chips Classic/Deluxe list. -->
+        <div class="menu-item rv" style="margin-top:20px;">
+          <p class="desc">Choice of sauce — 3 &mdash;</p>
+          <ul class="menu-serves">
+            <li><span class="s-name">Brandy &amp; peppercorn</span></li>
+            <li><span class="s-name">Blue cheese</span></li>
+            <li><span class="s-name">Garlic &amp; herb butter</span></li>
+          </ul>
         </div>
       </div>
     </div>
