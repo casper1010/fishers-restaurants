@@ -216,6 +216,20 @@
     font-size: 0.55em;
     opacity: 1;
   }
+  /* The homepage marquee carries both .marquee and .reviews-marquee, and
+     this block's ".reviews-marquee .marquee-track" selector (2 classes)
+     is more specific than the plain ".marquee-track" mobile rule in
+     assets/style.css, so it was silently overriding it — font-size here
+     was capped at clamp(16px,2vw,28px) regardless of what was set in
+     style.css. Overriding it here directly, scoped to mobile only, so
+     desktop stays untouched. */
+  @media (max-width: 760px){
+    .reviews-marquee .marquee-track{
+      font-size: clamp(30px, 8vw, 40px);
+      row-gap: 30px;
+    }
+    .reviews-marquee .marquee-track > span{ row-gap: 30px; }
+  }
   /* ----- Instagram feed ----- */
   .ig-section{
     padding: calc(24px * var(--tw-section-pad)) 0 calc(60px * var(--tw-section-pad));
