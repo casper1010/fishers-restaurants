@@ -1973,8 +1973,12 @@ section{ position:relative; }
        layout — on mobile the photo and text stack with nothing between
        them, so the text block's own padding was the ONLY breathing room
        against the photo. Adding real gap here is what actually separates
-       them, on top of the text's own padding increase below. */
-    gap: 28px;
+       them, on top of the text's own padding increase below. Bumped from
+       28px to 44px — the flipped "hours" variant reads much airier than
+       the plain quote variant because it's followed by .ta-reviews's own
+       96px top padding, an unrelated section-transition gap; raising
+       this shared value brings the tighter-looking one closer in line. */
+    gap: 44px;
   }
   .r-quote-fullbleed .r-quote-slideshow{
     height: clamp(360px, 60vh, 520px);
