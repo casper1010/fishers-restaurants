@@ -2068,12 +2068,11 @@ section{ position:relative; }
   text-align: center;
   align-items: center;
   max-width: 60ch;
-  /* Vertical clamp floor raised from 40px to 64px for more breathing room
-     around the quote on mobile, where the vw component is tiny and the
-     padding was effectively sitting at that floor — desktop is
-     unaffected since its width already pushes past the new floor via
-     the vw scaling. */
-  padding: clamp(64px, 8vw, 90px) clamp(40px, 7vw, 120px);
+  /* Vertical clamp floor raised again, to 88px, for real breathing room
+     around the quote/hours text on mobile, where the vw component is
+     tiny and the padding sits at this floor. Desktop is unaffected since
+     its width pushes past the floor via the vw scaling. */
+  padding: clamp(88px, 9vw, 112px) clamp(40px, 7vw, 120px);
 }
 .r-q-centered .r-quote-rule{
   display: block;
@@ -2089,20 +2088,6 @@ section{ position:relative; }
 }
 .r-q-centered .r-quote-text cite{ justify-content: center; }
 
-@media (max-width: 800px){
-  /* Both the plain quote band and this flipped "hours" band share identical
-     top/bottom padding from the rule above (64px floor), but what follows
-     each of them on mobile is NOT identical: the plain quote band is
-     followed immediately by this flipped band (flush, zero padding), so
-     its own bottom padding is the ONLY space before the next photo — while
-     THIS flipped band is followed by .ta-reviews, which already carries
-     96px of its own top padding. Left symmetric, the flipped band's
-     trailing gap (padding-bottom + that 96px) ran to roughly 2.5x its top
-     gap. Trimming its bottom padding here brings the two much closer
-     without touching .ta-reviews, which is shared, unrelated spacing used
-     elsewhere on the page too. */
-  .r-q-flip .r-quote-text{ padding-bottom: 0; }
-}
 
 /* Photos-first variant of the centered band */
 .r-q-flip .r-quote-slideshow{ order: -1; }
@@ -2595,6 +2580,19 @@ section{ position:relative; }
 .ta-reviews{
   padding: 96px 0 24px;
   background: var(--cream);
+}
+@media (max-width: 800px){
+  /* The hours band directly above (.r-q-flip) now has the same full,
+     symmetric top/bottom padding as the plain quote band (see
+     .r-q-centered .r-quote-text) — no more special-casing there, so the
+     two bands read consistently with each other. That means the space
+     between the hours text and this section would otherwise stack the
+     hours band's own bottom padding on top of THIS section's 96px top
+     padding. Trimming it here, scoped to only when it directly follows
+     the hours band, keeps that stacked total close to the hours band's
+     own top gap instead of doubling it — without touching .ta-reviews's
+     top padding in any other context. */
+  .r-q-flip + .ta-reviews{ padding-top: 24px; }
 }
 .ta-reviews-head{
   max-width: 640px;
