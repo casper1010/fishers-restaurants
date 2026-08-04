@@ -1970,15 +1970,14 @@ section{ position:relative; }
     grid-template-columns: 1fr;
     min-height: 0;
     /* Base rule (line ~1946) sets gap:0 for the desktop side-by-side
-       layout — on mobile the photo and text stack with nothing between
-       them, so the text block's own padding was the ONLY breathing room
-       against the photo. Adding real gap here is what actually separates
-       them, on top of the text's own padding increase below. Bumped from
-       28px to 44px — the flipped "hours" variant reads much airier than
-       the plain quote variant because it's followed by .ta-reviews's own
-       96px top padding, an unrelated section-transition gap; raising
-       this shared value brings the tighter-looking one closer in line. */
-    gap: 44px;
+       layout. On mobile a separate rule below forces the photo to always
+       render before the text (order:-1), for every section regardless of
+       variant — so any grid gap here only ever adds space ABOVE the text
+       (between photo and text), never below it. Kept at 0 and left to the
+       text's own top/bottom padding (below) to provide EQUAL space on both
+       sides, since some sections are immediately followed by another
+       flush, zero-padding section with nothing to buffer the bottom. */
+    gap: 0;
   }
   .r-quote-fullbleed .r-quote-slideshow{
     height: clamp(360px, 60vh, 520px);
@@ -2091,14 +2090,18 @@ section{ position:relative; }
 .r-q-centered .r-quote-text cite{ justify-content: center; }
 
 @media (max-width: 800px){
-  /* On mobile the grid `gap` (44px, set on .r-quote-fullbleed .r-quote-grid
-     above) already adds real space below the text before the photo. Left
-     alone, that meant bottom spacing (padding-bottom + gap) was nearly
-     double the top spacing (padding-top only), which read as uneven.
-     Trimming padding-bottom here — while leaving the padding-top/left/right
-     from the base rule above untouched — brings the top and bottom gaps
-     back in line with each other. */
-  .r-q-centered .r-quote-text{ padding-bottom: 20px; }
+  /* Both the plain quote band and this flipped "hours" band share identical
+     top/bottom padding from the rule above (64px floor), but what follows
+     each of them on mobile is NOT identical: the plain quote band is
+     followed immediately by this flipped band (flush, zero padding), so
+     its own bottom padding is the ONLY space before the next photo — while
+     THIS flipped band is followed by .ta-reviews, which already carries
+     96px of its own top padding. Left symmetric, the flipped band's
+     trailing gap (padding-bottom + that 96px) ran to roughly 2.5x its top
+     gap. Trimming its bottom padding here brings the two much closer
+     without touching .ta-reviews, which is shared, unrelated spacing used
+     elsewhere on the page too. */
+  .r-q-flip .r-quote-text{ padding-bottom: 0; }
 }
 
 /* Photos-first variant of the centered band */
