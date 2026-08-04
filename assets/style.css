@@ -2730,6 +2730,23 @@ section{ position:relative; }
 @media (max-width: 600px){
   .about-band p{ max-width: none; }
 }
+@media (min-width: 1001px){
+  /* Desktop-only: dial the header/paragraph size down and tighten the
+     block overall. Mobile is untouched — it sits on the clamp() floor
+     values above regardless of this, since the vw components here never
+     get close to those floors at mobile widths. */
+  .about-band{
+    padding: clamp(72px, 9vh, 120px) var(--gutter);
+  }
+  .about-band .about-title{
+    font-size: clamp(30px, 3.2vw, 44px);
+  }
+  .about-band p{
+    font-size: clamp(18px, 1.7vw, 24px);
+    max-width: 46ch;
+  }
+  .about-band .about-feature{ margin-bottom: 32px; }
+}
 
 /* =========== Overlap / cohesion utilities =========== */
 .r-band.bleed-down{ padding-bottom: 0; }
