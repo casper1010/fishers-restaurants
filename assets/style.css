@@ -2731,19 +2731,22 @@ section{ position:relative; }
   .about-band p{ max-width: none; }
 }
 @media (min-width: 1001px){
-  /* Desktop-only: dial the header/paragraph size down and tighten the
-     block overall. Mobile is untouched — it sits on the clamp() floor
-     values above regardless of this, since the vw components here never
-     get close to those floors at mobile widths. */
+  /* Desktop-only: header/paragraph sized halfway between the original
+     (58px / 31px) and the first pass, which read too small (44px / 24px).
+     Paragraph box widened past its original 52ch too — a wider line
+     wraps to fewer lines, which is what actually shortens the block,
+     rather than shrinking the padding further. Mobile is untouched — it
+     sits on the clamp() floor values above regardless of this, since the
+     vw components here never get close to those floors at mobile widths. */
   .about-band{
     padding: clamp(72px, 9vh, 120px) var(--gutter);
   }
   .about-band .about-title{
-    font-size: clamp(30px, 3.2vw, 44px);
+    font-size: clamp(30px, 3.7vw, 51px);
   }
   .about-band p{
-    font-size: clamp(18px, 1.7vw, 24px);
-    max-width: 46ch;
+    font-size: clamp(19px, 1.9vw, 28px);
+    max-width: 62ch;
   }
   .about-band .about-feature{ margin-bottom: 32px; }
 }
