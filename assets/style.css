@@ -2090,6 +2090,17 @@ section{ position:relative; }
 }
 .r-q-centered .r-quote-text cite{ justify-content: center; }
 
+@media (max-width: 800px){
+  /* On mobile the grid `gap` (44px, set on .r-quote-fullbleed .r-quote-grid
+     above) already adds real space below the text before the photo. Left
+     alone, that meant bottom spacing (padding-bottom + gap) was nearly
+     double the top spacing (padding-top only), which read as uneven.
+     Trimming padding-bottom here — while leaving the padding-top/left/right
+     from the base rule above untouched — brings the top and bottom gaps
+     back in line with each other. */
+  .r-q-centered .r-quote-text{ padding-bottom: 20px; }
+}
+
 /* Photos-first variant of the centered band */
 .r-q-flip .r-quote-slideshow{ order: -1; }
 
