@@ -225,6 +225,17 @@ section{ position:relative; }
   display:block;
   width:100%;
   height:auto;
+  /* Cream background is needed above the wave paths (the topmost path
+     only starts partway down the viewBox, so this shows through as the
+     fade from the page's cream background into the waves). The paths
+     themselves are extended slightly past the viewBox's bottom edge in
+     the markup (see the "L1440,190 L0,190" closes instead of ",180") so
+     that the SVG's own default clip-to-viewBox behaviour — not exact
+     sub-pixel alignment of the responsive width:100%/height:auto box —
+     is what guarantees full coverage at the bottom edge. Without that
+     overscan, rounding in the responsive scaling could leave a hairline
+     sliver of this cream background visible against the dark footer
+     below it. */
   background:var(--cream);
 }
 .footer-inner{
