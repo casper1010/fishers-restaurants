@@ -1969,6 +1969,12 @@ section{ position:relative; }
   .r-quote-fullbleed .r-quote-grid{
     grid-template-columns: 1fr;
     min-height: 0;
+    /* Base rule (line ~1946) sets gap:0 for the desktop side-by-side
+       layout — on mobile the photo and text stack with nothing between
+       them, so the text block's own padding was the ONLY breathing room
+       against the photo. Adding real gap here is what actually separates
+       them, on top of the text's own padding increase below. */
+    gap: 28px;
   }
   .r-quote-fullbleed .r-quote-slideshow{
     height: clamp(360px, 60vh, 520px);
