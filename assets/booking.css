@@ -80,12 +80,13 @@
 }
 .bk-title em{ font-style: normal; }
 .bk-note{
-  font-family: var(--mono, ui-monospace, monospace);
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: color-mix(in oklch, var(--cream, #f6f3ea) 65%, transparent);
-  margin: 10px 0 0;
+  font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(15px, 2vw, 18px);
+  letter-spacing: 0.01em;
+  color: var(--brass, #c79a5b);
+  margin: 8px 0 0;
 }
 
 .bk-close{
