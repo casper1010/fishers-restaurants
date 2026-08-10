@@ -182,7 +182,12 @@
     margin-top:48px;
     background:#fff;
     border-top:1px solid var(--rule);
-    border-bottom:1px solid var(--rule);
+    /* Stronger than the top border on purpose — this one sits against a
+       plain white/cream background below rather than an image, where the
+       default --rule opacity read as almost invisible (matches the same
+       fix already applied to the base .marquee rule in style.css, which
+       this inline rule was otherwise silently overriding back down). */
+    border-bottom:1px solid oklch(0.22 0.06 250 / 0.35);
     padding:20px 0;
   }
   .reviews-marquee{ margin-top:0; }
