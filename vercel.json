@@ -1,4 +1,17 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/leith", "destination": "/fishers-leith/", "permanent": true },
+    { "source": "/leith.html", "destination": "/fishers-leith/", "permanent": true },
+    { "source": "/city", "destination": "/fishers-in-the-city/", "permanent": true },
+    { "source": "/city.html", "destination": "/fishers-in-the-city/", "permanent": true },
+    { "source": "/shore", "destination": "/shore-bar-and-restaurant/", "permanent": true },
+    { "source": "/shore.html", "destination": "/shore-bar-and-restaurant/", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/fishers-leith", "destination": "/leith.html" },
+    { "source": "/fishers-in-the-city", "destination": "/city.html" },
+    { "source": "/shore-bar-and-restaurant", "destination": "/shore.html" }
+  ]
 }
