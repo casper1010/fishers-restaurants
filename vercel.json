@@ -5,6 +5,8 @@
     { "source": "/leith.html", "destination": "/fishers-leith/", "permanent": true },
     { "source": "/city.html", "destination": "/fishers-in-the-city/", "permanent": true },
     { "source": "/fishers-in-the-city/:menu+", "destination": "/fishers-in-the-city/#menu", "permanent": true },
-    { "source": "/shore.html", "destination": "/shore-bar-and-restaurant/", "permanent": true }
+    { "source": "/shore.html", "destination": "/shore-bar-and-restaurant/", "permanent": true },
+    { "source": "/fishers-leith/:menu+", "destination": "/fishers-leith/#menu", "permanent": true },
+    { "source": "/shore-bar-and-restaurant/:menu+", "destination": "/shore-bar-and-restaurant/#menu", "permanent": true }
   ]
 }
