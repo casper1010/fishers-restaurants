@@ -89,7 +89,7 @@
     if(loadedVenue !== key){
       bodyEl.classList.remove('is-ready');
       frameEl.style.height = '520px';
-      frameEl.src = 'assets/book-widget.html?v=' + encodeURIComponent(key);
+      frameEl.src = '/assets/book-widget.html?v=' + encodeURIComponent(key);
       loadedVenue = key;
     }
 
