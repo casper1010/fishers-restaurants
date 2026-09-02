@@ -2,7 +2,9 @@
    Single shared dataset (fishers_menu), separate document type per restaurant.
    Schema docs (see ~/fishers-website): menuItemLeith, menuItemCity,
      menuItemShorebar — each with name, description, price (number),
-     category (string, matches data-course), available (boolean).
+     priceDisplay (string, optional free-form text for two-tier pricing —
+     wins over price when set), category (string, matches data-course),
+     available (boolean).
    Each page sets window.FISHERS_MENU_TYPE to its own document type name.
    Falls back to the static HTML already in the page if the fetch fails, returns nothing, or Sanity isn't reachable. */
 (function(){
@@ -18,7 +20,10 @@
   }
 
   function itemHTML(it){
-    var price = (it.price || it.price === 0) ? '<span class="price">' + esc(it.price) + '</span>' : '';
+    // priceDisplay holds free-form text for two-tier pricing (e.g. "8 · 11.50")
+    // that the plain numeric price field can't represent; it wins when set.
+    var priceText = it.priceDisplay || ((it.price || it.price === 0) ? it.price : '');
+    var price = priceText !== '' ? '<span class="price">' + esc(priceText) + '</span>' : '';
     // Note: deliberately no "rv" class — that class starts elements at
     // opacity:0 until a page-load-time IntersectionObserver (assets/script.js)
     // reveals them. Items inserted after that observer has already run never
@@ -35,7 +40,7 @@
     // Sorted by orderRank (the manual drag-and-drop order set in Sanity's
     // Studio "Menus" reorder lists), falling back to name for any item
     // that predates that field / was added outside the ordered lists.
-    var query = encodeURIComponent('*[_type=="' + DOC_TYPE + '" && category=="' + course + '" && available!=false] | order(orderRank asc, name asc){name,description,price}');
+    var query = encodeURIComponent('*[_type=="' + DOC_TYPE + '" && category=="' + course + '" && available!=false] | order(orderRank asc, name asc){name,description,price,priceDisplay}');
 
     fetch(API + '?query=' + query)
       .then(function(r){ return r.json(); })
