@@ -1774,7 +1774,8 @@ section{ position:relative; }
 .menu-section h3.course-wide{
   font-size: clamp(36px, 4.5vw, 56px);
   text-align: left;
-  border-bottom-color: var(--ink-deep);
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ink-deep);
   color: var(--ink-deep);
 }
 .menu-section h4.course-sub{
@@ -1791,7 +1792,7 @@ section{ position:relative; }
 .menu-section .course-note{
   font-family: var(--serif);
   font-style: italic;
-  font-size: 14.5px;
+  font-size: 17px;
   line-height: 1.4;
   color: color-mix(in oklch, var(--ink) 65%, transparent);
   margin: 0 0 12px;
@@ -3497,7 +3498,7 @@ body[data-page="shore"] .site-header:not(.scrolled) .header-mark img{ filter:non
 .menu-section{ padding: 80px 0 62px; }
 .menu-section .menu-head{ margin-bottom: 36px; padding-bottom: 22px; }
 .menu-section h3.course{ font-size: 20px; padding-bottom: 10px; margin-bottom: 4px; }
-.menu-section h3.course-wide{ font-size: 20px; margin-top: 33px; margin-bottom: 21px !important; }
+.menu-section h3.course-wide{ font-size: 28px; padding-bottom: 10px; margin-top: 33px; margin-bottom: 21px !important; }
 .menu-section .menu-cols{ gap: clamp(27px, 3.7vw, 60px); }
 .menu-section .menu-cols + .menu-cols{ margin-top: clamp(39px, 4.5vw, 68px); }
 
