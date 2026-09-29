@@ -1717,6 +1717,40 @@ section{ position:relative; }
   border-bottom:1px solid var(--rule);
   padding-bottom:36px;
 }
+/* Quick-jump buttons next to "The Menu" heading, for pages with several
+   menus (a la carte, Fishers Favourites, Set Lunch, Christmas, etc.) */
+.menu-jump{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:flex-end;
+}
+.menu-jump a{
+  font-family:var(--mono);
+  font-size:10.5px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--ink-deep);
+  border:1px solid var(--rule);
+  border-radius:999px;
+  padding:9px 16px;
+  white-space:nowrap;
+  text-decoration:none;
+  transition:border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+.menu-jump a:hover,
+.menu-jump a:focus-visible{
+  border-color:var(--brass);
+  color:var(--brass-deep);
+  background:color-mix(in oklch, var(--brass) 8%, transparent);
+}
+/* Offset anchor-jump targets so the fixed site header doesn't cover them */
+#menu-alacarte,
+#menu-fishers-favourites,
+#menu-set-lunch,
+#menu-christmas{
+  scroll-margin-top: 100px;
+}
 .menu-head h2{
   font-size:clamp(36px, 4.75vw, 64px);
   font-style:italic;
@@ -3378,6 +3412,7 @@ body[data-page="shore"] .site-header:not(.scrolled) .header-mark img{ filter:non
   .qc-text{ max-width: 100%; }
   .footer-inner{ grid-template-columns: 1fr; gap:28px; }
   .menu-head{ grid-template-columns: 1fr; gap:18px; }
+  .menu-jump{ justify-content:flex-start; }
   .collage-grid > .tile{ grid-column: span 12 !important; grid-row: span 4 !important; margin-top:0 !important; }
 }
 

@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/assets/style.css?v=51" />
+<link rel="stylesheet" href="/assets/style.css?v=52" />
 <link rel="stylesheet" href="/assets/booking.css?v=4" />
 </head>
 <body data-page="city">
@@ -167,11 +167,17 @@
         <h2>The <em>Menu</em></h2>
         <span class="menu-note">Subject to change daily</span>
       </div>
+      <nav class="menu-jump rv" aria-label="Jump to menu section">
+        <a href="#menu-alacarte">A la Carte</a>
+        <a href="#menu-fishers-favourites">Fishers' Favourites</a>
+        <a href="#menu-set-lunch">Set Lunch</a>
+        <a href="#menu-christmas">Christmas Menu</a>
+      </nav>
     </div>
 
     <div class="menu-cols">
 
-      <div class="menu-col">
+      <div class="menu-col" id="menu-alacarte">
         <h3 class="course rv">Starters</h3>
         <div class="menu-course-group" data-course="starter">
 
@@ -290,7 +296,7 @@
     </div>
 
     <!-- Fishers Favourites -->
-    <h3 class="course course-wide rv" style="margin-bottom:24px;">Fishers Favourites</h3>
+    <h3 class="course course-wide rv" id="menu-fishers-favourites" style="margin-bottom:24px;">Fishers Favourites</h3>
 
     <div class="menu-cols">
 
@@ -620,7 +626,7 @@
          the rest of the menu (categories set_lunch_starter / set_lunch_main /
          set_lunch_dessert). Static items below are the fallback shown if
          Sanity is unreachable. -->
-    <h3 class="course-wide rv" style="margin-bottom:8px;">Set Lunch Menu</h3>
+    <h3 class="course-wide rv" id="menu-set-lunch" style="margin-bottom:8px;">Set Lunch Menu</h3>
     <p class="course-note rv" style="max-width:none;">Monday to Friday, 12:00&ndash;5:00pm &middot; 2 courses &pound;25 &middot; 3 courses &pound;30</p>
 
     <div class="menu-cols">
@@ -713,6 +719,148 @@
             <span class="name">Braised Short Rib</span>
           </div>
           <p class="desc">Turnip &amp; potato gratin, haggis bon bon, peppercorn sauce</p>
+        </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Christmas Menu -->
+    <h3 class="course-wide rv" id="menu-christmas" style="margin-bottom:8px;">Christmas Menu</h3>
+    <p class="course-note rv" style="max-width:none;">3 courses &pound;55 &middot; Tea, coffee &amp; truffles included</p>
+
+    <div class="menu-cols">
+      <div class="menu-col">
+
+        <h4 class="course-sub rv">Starters</h4>
+
+        <div class="menu-course-group" data-course="christmas_starter">
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Fisher's Fish Soup or Roast Cauliflower &amp; Chestnut</span>
+          </div>
+          <p class="desc">Truffle oil</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Fisher's Salmon &amp; Haddock Fishcakes</span>
+          </div>
+          <p class="desc">Mixed salad, chive mayonnaise</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">King Scallops</span>
+          </div>
+          <p class="desc">Golden beetroot, raspberry &amp; black pepper gel, tarragon, charcoal emulsion</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Blue Corn Monkfish Cheek Taco</span>
+          </div>
+          <p class="desc">Charred corn salsa, jalape&ntilde;o mayo</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Potted Brown Shrimp</span>
+          </div>
+          <p class="desc">Chicken brown butter, lime pickle, apple &amp; fennel slaw, crispy chicken skin</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Chilled Scottish Seafood Platter</span>
+          </div>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Pork Cheek</span>
+          </div>
+          <p class="desc">Salt baked celeriac, cavolo nero, mulled cider sauce, pickled shimeji</p>
+        </div>
+        </div>
+
+        <h4 class="course-sub rv" style="margin-top:36px;">Desserts</h4>
+
+        <div class="menu-course-group" data-course="christmas_dessert">
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Sticky Toffee Pudding</span>
+          </div>
+          <p class="desc">Butterscotch sauce, vanilla ice cream</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Cr&egrave;me Br&ucirc;l&eacute;e &amp; Shortbread</span>
+          </div>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Selection of Ice Cream &amp; Sorbets</span>
+          </div>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Cheese Plate</span>
+          </div>
+          <p class="desc">3 cheese, oatcakes, crispbreads &amp; sea buckthorn jelly (&pound;4 supplement)</p>
+        </div>
+        </div>
+
+      </div>
+
+      <div class="menu-col">
+
+        <h4 class="course-sub rv">Mains</h4>
+
+        <div class="menu-course-group" data-course="christmas_main">
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Orkney Scallops</span>
+          </div>
+          <p class="desc">Kimchi butter, crispy seaweed, duck fat roast potatoes</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Grilled Whole Lemon Sole</span>
+          </div>
+          <p class="desc">Thermidor butter</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Halibut Fillet</span>
+          </div>
+          <p class="desc">Tartare beurre blanc, pea pur&eacute;e, keta caviar, crispy potatoes</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Linguine, King Prawn, Mussels &amp; Clams</span>
+          </div>
+          <p class="desc">Chilli, brown crab butter (half lobster supplement &mdash; &pound;25)</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Beer Battered Haddock</span>
+          </div>
+          <p class="desc">Hand cut chips, crushed minted peas, tartare sauce</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Spiced Confit Duck Leg</span>
+          </div>
+          <p class="desc">Fondant potato, smoked beetroot, cranberry &amp; orange sauce</p>
         </div>
         </div>
 
