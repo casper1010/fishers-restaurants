@@ -19,10 +19,16 @@
     });
   }
 
+  // Whole-pound prices stay as typed (13); anything with pence always shows
+  // two decimals (13.5 -> 13.50) so prices match the printed menus.
+  function fmtPrice(p){
+    return (typeof p === 'number' && p % 1 !== 0) ? p.toFixed(2) : p;
+  }
+
   function itemHTML(it){
     // priceDisplay holds free-form text for two-tier pricing (e.g. "8 · 11.50")
     // that the plain numeric price field can't represent; it wins when set.
-    var priceText = it.priceDisplay || ((it.price || it.price === 0) ? it.price : '');
+    var priceText = it.priceDisplay || ((it.price || it.price === 0) ? fmtPrice(it.price) : '');
     var price = priceText !== '' ? '<span class="price">' + esc(priceText) + '</span>' : '';
     // Note: deliberately no "rv" class — that class starts elements at
     // opacity:0 until a page-load-time IntersectionObserver (assets/script.js)
