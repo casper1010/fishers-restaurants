@@ -3553,3 +3553,13 @@ body[data-page="shore"] .site-header:not(.scrolled) .header-mark img{ filter:non
 
 /* sub-headers within a column (From the kitchen, Oysters, etc.) */
 .menu-section h4.course-sub{ margin-bottom: 11px; }
+
+/* Set Lunch (Fishers in the City): on one-column screens keep the courses in
+   menu order (Starters, Mains, Desserts). Desktop keeps the two-column layout. */
+@media (max-width: 1000px){
+  .set-lunch-cols{ display:flex; flex-direction:column; gap:0; }
+  .set-lunch-cols .menu-col{ display:contents; }
+  .menu-section .set-lunch-cols h4.sl-mains-head{ margin-top:36px; }
+  .set-lunch-cols .sl-dessert-head,
+  .set-lunch-cols [data-course="set_lunch_dessert"]{ order:1; }
+}
