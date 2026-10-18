@@ -3561,5 +3561,6 @@ body[data-page="shore"] .site-header:not(.scrolled) .header-mark img{ filter:non
   .set-lunch-cols .menu-col{ display:contents; }
   .menu-section .set-lunch-cols h4.sl-mains-head{ margin-top:36px; }
   .set-lunch-cols .sl-dessert-head,
-  .set-lunch-cols [data-course="set_lunch_dessert"]{ order:1; }
+  .set-lunch-cols [data-course="set_lunch_dessert"],
+  .set-lunch-cols [data-course="christmas_dessert"]{ order:1; }
 }

@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/assets/style.css?v=52" />
+<link rel="stylesheet" href="/assets/style.css?v=54" />
 <link rel="stylesheet" href="/assets/booking.css?v=4" />
 <link rel="canonical" href="https://www.fishersrestaurants.co.uk/fishers-leith/" />
 <script type="application/ld+json">
@@ -196,11 +196,17 @@
         <h2>The <em>Menu</em></h2>
         <span class="menu-note">Subject to change daily</span>
       </div>
+      <nav class="menu-jump rv" aria-label="Jump to menu section">
+        <a href="#menu-alacarte">A la Carte</a>
+        <a href="#menu-fishers-favourites">Fishers' Favourites</a>
+        <a href="#menu-set-lunch">Set Lunch</a>
+        <a href="#menu-christmas">Christmas Menu</a>
+      </nav>
     </div>
 
     <div class="menu-cols">
 
-      <div class="menu-col">
+      <div class="menu-col" id="menu-alacarte">
 
         <div class="menu-course-group" data-course="starter">
         <h3 class="course rv">Starters</h3>
@@ -445,7 +451,7 @@
     </div>
 
     <!-- Fishers Favourites -->
-    <h3 class="course course-wide rv" style="margin-bottom:24px;">Fishers Favourites</h3>
+    <h3 class="course course-wide rv" id="menu-fishers-favourites" style="margin-bottom:24px;">Fishers Favourites</h3>
 
     <div class="menu-cols">
       <div class="menu-course-group" data-course="fishers_favourite" style="display:contents;">
@@ -610,7 +616,7 @@
          the rest of the menu (categories set_lunch_starter / set_lunch_main /
          set_lunch_dessert). Static items below are the fallback shown if
          Sanity is unreachable. -->
-    <h3 class="course-wide rv" style="margin-bottom:8px;">Set Lunch Menu</h3>
+    <h3 class="course-wide rv" id="menu-set-lunch" style="margin-bottom:8px;">Set Lunch Menu</h3>
     <p class="course-note rv" style="max-width:none;">Monday to Friday, 12:00&ndash;5:00pm &middot; 2 courses &pound;25 &middot; 3 courses &pound;30</p>
 
     <div class="menu-cols">
@@ -682,6 +688,119 @@
           </div>
           <p class="desc">Salad garnish &amp; herb mayo</p>
         </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Christmas Menu — wired into the live Sanity-driven system (categories
+         christmas_starter / christmas_main / christmas_dessert, Leith document
+         type). Static items below are the fallback shown if Sanity is unreachable. -->
+    <h3 class="course-wide rv" id="menu-christmas" style="margin-bottom:8px;">Christmas Menu</h3>
+    <p class="course-note rv" style="max-width:none;">3 courses &pound;45</p>
+
+    <div class="menu-cols set-lunch-cols">
+      <div class="menu-col">
+
+        <h4 class="course-sub rv">Starters</h4>
+
+        <div class="menu-course-group" data-course="christmas_starter">
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Pickled Pear &amp; Quince</span>
+          </div>
+          <p class="desc">Gorgonzola, candied walnut salad with chicory and panettone croutons</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Seared Scottish Smoked Salmon</span>
+          </div>
+          <p class="desc">Blinis, crème fraîche, salmon keta and watercress</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Venison &amp; Wild Boar Terrine</span>
+          </div>
+          <p class="desc">Red cabbage and mulled wine marmalade, burnt apple purée and sourdough</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Truffled Smoked Haddock Mac &amp; Cheese</span>
+          </div>
+        </div>
+
+        </div>
+
+        <h4 class="course-sub sl-dessert-head rv" style="margin-top:36px;">Desserts</h4>
+
+        <div class="menu-course-group" data-course="christmas_dessert">
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Sticky Toffee Pudding</span>
+          </div>
+          <p class="desc">Chocolate orange butterscotch and mince pie ice cream</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Eggnog Crème Brûlée</span>
+          </div>
+          <p class="desc">Almond biscotti</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Cranachan Pavlova</span>
+          </div>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Cheese Selection</span>
+          </div>
+          <p class="desc">Frozen grapes, oatcakes and mulled wine and red onion jam (supplement)</p>
+        </div>
+
+        </div>
+
+      </div>
+
+      <div class="menu-col">
+
+        <h4 class="course-sub sl-mains-head rv">Mains</h4>
+
+        <div class="menu-course-group" data-course="christmas_main">
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Confit Duck Leg</span>
+          </div>
+          <p class="desc">Sautéed Brussels sprouts, bacon and chestnuts, fondant potato and red wine sauce</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Sea Trout Fillet</span>
+          </div>
+          <p class="desc">Parsnip and celeriac purée, burnt spring onions, Serrano ham and sage gremolata</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Roast Cod Fillet</span>
+          </div>
+          <p class="desc">Haricot bean and pancetta cassoulet, persillade</p>
+        </div>
+
+        <div class="menu-item rv">
+          <div class="row1">
+            <span class="name">Curried Cauliflower Fritters</span>
+          </div>
+          <p class="desc">Broccoli and winter cabbage salad, green goddess dressing and cranberry hot sauce</p>
+        </div>
+
         </div>
 
       </div>
