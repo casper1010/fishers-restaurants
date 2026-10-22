@@ -9,7 +9,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(16px, 5vh, 64px) 16px;
+  padding: clamp(8px, 3vh, 32px) 16px;
   background: color-mix(in oklch, var(--ink-night, #0b1622) 64%, transparent);
   -webkit-backdrop-filter: blur(7px) saturate(1.1);
   backdrop-filter: blur(7px) saturate(1.1);
@@ -34,7 +34,8 @@
     0 0 0 1px color-mix(in oklch, var(--ink-deep, #14202c) 18%, transparent);
   display: flex;
   flex-direction: column;
-  max-height: 90vh;
+  max-height: calc(100vh - 2 * clamp(8px, 3vh, 32px));
+  max-height: calc(100dvh - 2 * clamp(8px, 3vh, 32px));
   transform: translateY(16px) scale(.985);
   opacity: 0;
   transition: transform .5s cubic-bezier(.22,.61,.36,1), opacity .42s ease;
@@ -58,7 +59,7 @@
   position: relative;
   background: var(--ink-deep, #14202c);
   color: var(--cream, #f6f3ea);
-  padding: 26px 56px 24px 30px;
+  padding: 16px 56px 14px 26px;
   flex-shrink: 0;
 }
 .bk-tag{
@@ -67,13 +68,13 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--brass, #c79a5b);
-  margin: 0 0 9px;
+  margin: 0 0 6px;
 }
 .bk-title{
   font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
   font-style: italic;
   font-weight: 500;
-  font-size: clamp(26px, 4vw, 34px);
+  font-size: clamp(24px, 4vw, 30px);
   line-height: 1.02;
   margin: 0;
   color: var(--cream, #f6f3ea);
@@ -81,12 +82,12 @@
 .bk-title em{ font-style: normal; }
 .bk-note{
   display: inline-block;
-  margin: 12px 0 0;
-  padding: 7px 14px;
+  margin: 9px 0 0;
+  padding: 5px 11px;
   background: var(--brass, #c79a5b);
   color: var(--ink-deep, #14202c);
   font-family: var(--mono, ui-monospace, monospace);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -95,8 +96,8 @@
 
 .bk-close{
   position: absolute;
-  top: 18px;
-  right: 16px;
+  top: 14px;
+  right: 14px;
   width: 38px;
   height: 38px;
   display: grid;
@@ -117,20 +118,67 @@
 .bk-close svg{ width: 16px; height: 16px; display: block; }
 
 /* ---------- body ---------- */
+.bk-bodywrap{
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  background: #fff;
+}
 .bk-body{
   position: relative;
   flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
   background: #fff;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--brass, #b88a4a) #ece7da;
 }
+/* always-visible scrollbar so it is obvious the form scrolls */
+.bk-body::-webkit-scrollbar{ width: 10px; }
+.bk-body::-webkit-scrollbar-track{ background: #ece7da; }
+.bk-body::-webkit-scrollbar-thumb{
+  background: var(--brass, #b88a4a);
+  border-radius: 6px;
+  border: 2px solid #ece7da;
+}
+/* "scroll for more" cue shown while there is more form below */
+.bk-more{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 64px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 10px;
+  border: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.96) 70%);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+  font: 600 11px/1 var(--mono, ui-monospace, monospace);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-deep, #14202c);
+  z-index: 3;
+}
+.bk-more span{
+  background: var(--ink-deep, #14202c);
+  color: var(--cream, #f6f3ea);
+  padding: 8px 14px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.25);
+}
+.bk-more.is-visible{ opacity: 1; pointer-events: auto; }
 .bk-iframe{
   display: block;
   width: 100%;
   height: 520px;            /* updated live from postMessage */
   border: 0;
   background: #fff;
-  transition: height .35s ease;
 }
 /* boot shimmer behind the iframe before first paint */
 .bk-body::after{
@@ -155,7 +203,7 @@
   flex-shrink: 0;
   background: var(--cream, #f6f3ea);
   border-top: 1px solid color-mix(in oklch, var(--ink, #243240) 14%, transparent);
-  padding: 12px 30px;
+  padding: 8px 26px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -172,12 +220,16 @@
 @media (max-width: 560px){
   .bk-overlay{ padding: 0; }
   .bk-panel{ max-height: 100vh; max-height: 100dvh; width: 100%; }
-  .bk-head{ padding: 22px 52px 20px 22px; }
-  .bk-foot{ padding: 11px 22px; }
+  .bk-head{ padding: 12px 52px 12px 18px; }
+  .bk-tag{ display: none; }
+  .bk-title{ font-size: 24px; }
+  .bk-note{ margin-top: 7px; padding: 4px 9px; font-size: 9.5px; }
+  .bk-close{ top: 10px; right: 10px; }
+  .bk-foot{ padding: 7px 18px; font-size: 9px; }
   .bk-foot .bk-foot-addr{ display: none; }
 }
 
 @media (prefers-reduced-motion: reduce){
-  .bk-overlay, .bk-panel, .bk-iframe, .bk-close{ transition: opacity .25s ease; }
+  .bk-overlay, .bk-panel, .bk-close{ transition: opacity .25s ease; }
   .bk-panel{ transform: none; }
 }

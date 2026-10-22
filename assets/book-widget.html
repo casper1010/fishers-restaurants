@@ -7,7 +7,16 @@
 <style>
   html,body{ margin:0; padding:0; background:#fff; }
   body{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-  #rd-widget-frame{ max-width: 600px; margin: 0 auto; padding: 4px 10px 14px; }
+  #rd-widget-frame{ max-width: 600px; margin: 0 auto; padding: 0 10px 4px; }
+  /* Tighten the ResDiary form so the whole booking step fits on one screen
+     without scrolling (spacing only: nothing is hidden or restyled). */
+  #rd-widget-root .rd-widget-content{ padding-top: 6px !important; padding-bottom: 4px !important; }
+  #rd-widget-root .form-group{ margin-bottom: 6px !important; }
+  #rd-widget-root label{ margin-bottom: 1px !important; line-height: 18px !important; }
+  #rd-widget-root .bootstrap-datetimepicker-widget table td,
+  #rd-widget-root .bootstrap-datetimepicker-widget table th{
+    height: auto !important; line-height: 20px !important; padding: 2px !important;
+  }
   /* simple skeleton while the widget boots */
   #rd-boot{
     display:flex; align-items:center; justify-content:center;
