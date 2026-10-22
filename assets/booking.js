@@ -24,7 +24,7 @@
   };
   var FALLBACK = 'leith';
 
-  var overlay, panel, frameEl, bodyEl, moreEl, tagEl, titleEl, addrEl;
+  var overlay, panel, frameEl, bodyEl, tagEl, titleEl, addrEl;
   var currentVenue = null;
   var loadedVenue  = null;
   var lastFocus    = null;
@@ -56,7 +56,6 @@
             '<iframe class="bk-iframe" title="Reservations" ' +
               'allow="payment" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
           '</div>' +
-          '<button class="bk-more" type="button" aria-label="Scroll down for more of the booking form"><span>Scroll for more &darr;</span></button>' +
         '</div>' +
         '<div class="bk-foot">' +
           '<span>Secure booking · Powered by ResDiary</span>' +
@@ -68,27 +67,14 @@
     panel   = overlay.querySelector('.bk-panel');
     bodyEl  = overlay.querySelector('.bk-body');
     frameEl = overlay.querySelector('.bk-iframe');
-    moreEl  = overlay.querySelector('.bk-more');
     tagEl   = overlay.querySelector('.bk-tag');
     titleEl = overlay.querySelector('.bk-title');
     addrEl  = overlay.querySelector('.bk-foot-addr');
 
-    bodyEl.addEventListener('scroll', updateMore, { passive: true });
-    window.addEventListener('resize', updateMore);
-    moreEl.addEventListener('click', function(){
-      bodyEl.scrollBy({ top: Math.round(bodyEl.clientHeight * 0.8), behavior: 'smooth' });
-    });
     overlay.querySelector('.bk-close').addEventListener('click', close);
     overlay.addEventListener('mousedown', function(e){
       if(e.target === overlay) close();
     });
-  }
-
-  // Show a "scroll for more" cue while part of the form is below the fold
-  function updateMore(){
-    if(!bodyEl || !moreEl) return;
-    var left = bodyEl.scrollHeight - bodyEl.scrollTop - bodyEl.clientHeight;
-    moreEl.classList.toggle('is-visible', left > 24 && bodyEl.classList.contains('is-ready'));
   }
 
   function open(venueKey){
@@ -106,7 +92,6 @@
       bodyEl.classList.remove('is-ready');
       frameEl.style.height = '520px';
       bodyEl.scrollTop = 0;
-      moreEl.classList.remove('is-visible');
       frameEl.src = '/assets/book-widget.html?v=' + encodeURIComponent(key) + '&r=2';
       loadedVenue = key;
     }
@@ -151,8 +136,6 @@
     var h = Math.max(360, Math.min(e.data.height + 4, 2400));
     frameEl.style.height = h + 'px';
     bodyEl.classList.add('is-ready');
-    updateMore();
-    setTimeout(updateMore, 120);
   });
 
   // Resolve which venue a trigger should book
